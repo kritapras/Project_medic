@@ -45,9 +45,13 @@ var get_edit_time = $.ajax({
       				console.dir(med1_edit)
       				//console.log(m)
 						$("#med1_edit").text(med1_edit);
+						console.dir(med1_edit)
 						$("#med2_edit").text(med2_edit);
+						console.dir(med2_edit)
 						$("#med3_edit").text(med3_edit);
+						console.dir(med3_edit)
 						$("#timeedit").text(timeedit);
+						console.dir(timeedit)
             }});
 var get_time = $.ajax({
             url: 'medicine_time.php',
