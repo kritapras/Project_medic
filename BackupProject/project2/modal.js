@@ -30,6 +30,25 @@ var flag1 = 0;
 var flag2=1;
 var flag3=1;
 var flag4=1;
+var get_edit_time = $.ajax({
+            url: 'History_GET.php',
+            success: function(data) {
+                console.dir("time =:"+data)
+                var a = data;
+                console.dir(typeof(a))
+                get_edit_time = JSON.parse(data);
+                console.dir(data.med1_edit)
+                 var med1_edit = get_edit_time[0];
+      				var med2_edit = get_edit_time[1];
+      				var med3_edit = get_edit_time[2];
+      				var timeedit = get_edit_time[3];
+      				console.dir(med1_edit)
+      				//console.log(m)
+						$("#med1_edit").text(med1_edit);
+						$("#med2_edit").text(med2_edit);
+						$("#med3_edit").text(med3_edit);
+						$("#timeedit").text(timeedit);
+            }});
 var get_time = $.ajax({
             url: 'medicine_time.php',
             success: function(data) {

@@ -137,7 +137,7 @@ var get_time = $.ajax({
     				var d = new Date();
     				var m = d.getMinutes();
     				var h = d.getHours();
-    				console.log(m);
+    				//console.log(m);
     				if (m % 30 != 0) {flag4 = 0;}
     						if (((m % 30)==0) & flag4 ==0) {
     						$("#myModal4").modal('show');
@@ -606,3 +606,43 @@ var get_time = $.ajax({
    med20.pause();
 })
      }
+$(document).ready(function(){
+	$('#mor').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#atn').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#evn').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#nig').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#before').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$("#submit2").click(function(){
+
+			$.post("Setting1_POST.php", { 
+			user: $("#user").val(), 
+			pwd: $("#pwd").val(),
+			amount: $("#amount option:selected").val(),
+			add: $("#add option:selected").val(),
+			mor: $("#mor:checked").val(),
+			atn: $("#atn:checked").val(),
+			evn: $("#evn:checked").val(),
+			nig: $("#nig:checked").val(),
+			before: $("#before:checked").val()
+			}, 
+				function(user){
+					alert(user);
+				}
+			);
+		});
+	});

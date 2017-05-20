@@ -10,6 +10,7 @@ $tbname = "timetake";
     $usr_time2 = $_REQUEST["usr_time2"];
     $usr_time3 = $_REQUEST["usr_time3"];
     $usr_time4 = $_REQUEST["usr_time4"];
+    
 
 $conn = mysqli_connect($servername,$username,$password,$dbname);
 $conn->set_charset("utf8");
@@ -20,7 +21,7 @@ $conn->set_charset("utf8");
     echo "เวลารับประทานอาหารเที่ยง :".$usr_time2."\n";
     echo "เวลารับประทานอาหารเย็น :".$usr_time3."\n";
     echo "เวลารับประทานยาก่อนนอน :".$usr_time4."\n";
-
+	 $sql8="  UPDATE timeedit  SET timeedit =now() WHERE title='time_edit'";
     $sql1="  UPDATE timetake 
             SET timeeat= '$usr_time1'
             WHERE period='morning'";
@@ -34,7 +35,11 @@ $conn->set_charset("utf8");
             SET timeeat='$usr_time4'
             WHERE period='night'";
 
-
+if ($conn->query($sql8) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}/*
 if ($conn->query($sql1) === TRUE) {
     echo "Record updated successfully";
 } else {
@@ -55,7 +60,7 @@ if ($conn->query($sql4) === TRUE) {
 } else {
     echo "Error updating record: " . $conn->error;
 }
-
+*/
 
 $conn->close();
 ?>

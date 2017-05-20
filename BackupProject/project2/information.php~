@@ -100,7 +100,7 @@ p.customfont {
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
         <li class="li"><a href="index.php">สารบัญ</a></li>
-        <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>
+       <!-- <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
         <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
@@ -133,9 +133,9 @@ p.customfont {
       </div>
 
       <div class="container-fluid" width="400" height="350">
-        <div class="col-sm-4 "><img id="medic1" src="count_bottles/10.png" class="img-responsive" alt="bottle1" width="400" height="350"></div>
-        <div class="col-sm-4 "><img id="medic2" src="count_bottles/20.png" class="img-responsive" alt="bottle1" width="400" height="350"></div>
-        <div class="col-sm-4 "><img id="medic3" src="count_bottles/30.png" class="img-responsive" alt="bottle1" width="400" height="350"></div>
+        <div class="col-sm-4 "><img id="medic1" class="img-responsive" alt="bottle1" width="400" height="350"></div>
+        <div class="col-sm-4 "><img id="medic2" class="img-responsive" alt="bottle1" width="400" height="350"></div>
+        <div class="col-sm-4 "><img id="medic3"  class="img-responsive" alt="bottle1" width="400" height="350"></div>
       </div>
       <audio id="audio" src="beep.mp3" autostart="false" ></audio>
         <!-- Medicine count picture -->

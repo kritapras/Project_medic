@@ -173,22 +173,22 @@ p.customfont {
     <tbody>
       <tr>
         <td>1</td>
-        <td></td>
+        <td id="med1_edit"></td>
         <td>แก้ไขข้อมลยาที่ 1 ล่าสุด</td>
       </tr>
       <tr>
         <td>2</td>
-        <td></td>
+        <td id="med2_edit"></td>
         <td>แก้ไขข้อมลยาที่ 2 ล่าสุด</td>
       </tr>
       <tr>
         <td>3</td>
-        <td></td>
+        <td id="med3_edit"></td>
         <td>แก้ไขข้อมลยาที่ 3 ล่าสุด</td>
       </tr>
       <tr>
         <td>4</td>
-        <td></td>
+        <td id="timeedit"></td>
         <td>แก้ไขเวลารับประทานยาล่าสุด</td>
       </tr>
     </tbody>

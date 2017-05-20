@@ -7,23 +7,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="jquery-3.2.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
 
-	$("#submit1").click(function(){
-
-			$.post("Settime_POST.php", { 
-			usr_time1: $("#usr_time1").val(), 
-			usr_time2: $("#usr_time2").val(),
-			usr_time3: $("#usr_time3").val(),
-			usr_time4: $("#usr_time4").val()}, 
-				function(usr_time1){
-					alert(usr_time1);
-				}
-			);
-		});
-	});
-</script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -171,8 +155,8 @@ p.customfont {
   			<input type="time" name="usr_time2"id="usr_time2"  value="00:00"><label>  น.</label><br><br>
   			<label>เวลารับประทานอาหารเย็น : </label>	
   			<input type="time" name="usr_time3"id="usr_time3"  value="00:00"><label>  น.</label><br><br>
-        <label>เวลารับประทานก่อนนอน : </label>  
-        <input type="time" name="usr_time4" id="usr_time4" value="00:00"><label>  น.</label><br><br>
+         <label>เวลารับประทานก่อนนอน : </label>  
+         <input type="time" name="usr_time4" id="usr_time4" value="00:00"><label>  น.</label><br><br>
  			 <input type="button" value="ส่งข้อมูล" id="submit1" >
 		</form>
 
@@ -228,9 +212,9 @@ p.customfont {
               <h2><span class="label label-success">หน้าหลัก</span></h2><br>
               <p>รับประทานมื้อ : เช้า : ก่อนอาหาร </p>
             <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img src="template/take/1.png" class="img-responsive"></th>
-                    <th><img src="template/take/2.png" class="img-responsive"></th>
-                    <th><img src="template/take/1.png" class="img-responsive"></th>
+                    <th><img id="med1_take_count"src="template/take/1.png" class="img-responsive"></th>
+                    <th><img id="med2_take_count" src="template/take/2.png" class="img-responsive"></th>
+                    <th><img id="med3_take_count" src="template/take/1.png" class="img-responsive"></th>
               </table>              
             </div>
             <div class="modal-footer">

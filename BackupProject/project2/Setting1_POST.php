@@ -3,39 +3,82 @@ $servername = "localhost";
 $username = "root"; 
 $password = "raspberry";
 $dbname = "medicine"; 
-$tbname = "timetake";
-
+$tbname = "medicine_status";
 
     $user = $_REQUEST["user"];
     $pwd = $_REQUEST["pwd"];
     $amount = $_REQUEST["amount"];
     $add = $_REQUEST["add"];
-
+    $mor = $_REQUEST["mor"];
+    $atn = $_REQUEST["atn"];
+    $evn = $_REQUEST["evn"];
+    $nig = $_REQUEST["nig"];
+    $before = $_REQUEST["before"];
+  
+    $timestamp =$date;
+	if($mor != 1) {$mor =0;}
+	if($atn != 1) {$atn =0;}
+	if($evn != 1) {$evn =0;}
+	if($nig != 1) {$nig =0;}
+	if($before != 1) {$before =0;}
+	
 $conn = mysqli_connect($servername,$username,$password,$dbname);
 $conn->set_charset("utf8");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "ตัวยาที่:".$user."\n";
-    echo "subpakun:".$pwd."\n";
-    echo "จนวนยาที่ต้อรัรทาต่อรั้ :".$amount."\n";
-    echo "จนนยาที่เพ่ม".$add."\n";
-
-    $sql1="  UPDATE timetake 
-            SET timeeat= '$usr_time1'
-            WHERE period='morning'";
-    $sql2="  UPDATE timetake
-            SET timeeat='$usr_time2'
-            WHERE period='afternoon'";
-    $sql3="  UPDATE timetake
-            SET timeeat='$usr_time3'
-            WHERE period='evening'";
-    $sql4="  UPDATE timetake
-            SET timeeat='$usr_time4'
-            WHERE period='night'";
-
-
-if ($conn->query($sql1) === TRUE) {
+    /*echo "ตัวยาที่:".$user."\n";
+    echo "สรรพคุณ:".$pwd."\n";
+    echo "จำนวนยาที่ต้องรับประทานต่อครั้ง :".$amount."\n";
+    echo "จำนวนยาที่เพ่ิม".$add."\n";
+    echo "รับประทานตอนเช้า".$mor."\n";
+    echo "รับประทานตอนลางวัน".$atn."\n";
+    echo "รับประทานตอนเน".$evn."\n";
+    echo "รับประทาน่อนนอน".$nig."\n";
+    if($before == 1) {
+    echo "รับประทาน่อนอาหาร".$before."\n";
+        }
+        elseif($before == 0) {
+        	echo "รับประทานหลังอาหาร".$before."\n";
+        }
+	echo $user+$amount+$add+$mor+$atn+$evn+$nig+$before;*/
+	if($user == 1) {
+  $sql1="  UPDATE medicine_status  SET status = '$add 'WHERE title='med1_count' ";
+  $sql2="  UPDATE medicine_status   SET status = '$amount' WHERE title='med1_take_count'";
+  $sql3="  UPDATE medicine_status  SET status = '$before' WHERE title='med1_take_before'";
+  $sql4="  UPDATE medicine_status  SET status = '$mor' WHERE title='med1_meal_mor'";
+  $sql5="  UPDATE medicine_status SET status = '$atn' WHERE title='med1_meal_atn'";
+  $sql6="  UPDATE medicine_status  SET status = '$evn' WHERE title='med1_meal_evn'";
+  $sql7="  UPDATE medicine_status  SET status = '$nig' WHERE title='med1_meal_nig'";
+  $sql8="  UPDATE timeedit  SET timeedit=now() WHERE title='med1_edit'";
+  }
+	elseif($user == 2) {
+		$sql1="  UPDATE medicine_status  SET status = '$add 'WHERE title='med2_count' ";
+  $sql2="  UPDATE medicine_status   SET status = '$amount' WHERE title='med2_take_count'";
+  $sql3="  UPDATE medicine_status  SET status = '$before' WHERE title='med2_take_before'";
+  $sql4="  UPDATE medicine_status  SET status = '$mor' WHERE title='med2_meal_mor'";
+  $sql5="  UPDATE medicine_status SET status = '$atn' WHERE title='med2_meal_atn'";
+  $sql6="  UPDATE medicine_status  SET status = '$evn' WHERE title='med2_meal_evn'";
+  $sql7="  UPDATE medicine_status  SET status = '$nig' WHERE title='med2_meal_nig'";
+  $sql8="  UPDATE timeedit  SET timeedit = now() WHERE title='med2_edit'";}
+  elseif($user == 3) {
+		$sql1="  UPDATE medicine_status  SET status = '$add 'WHERE title='med3_count' ";
+  $sql2="  UPDATE medicine_status   SET status = '$amount' WHERE title='med3_take_count'";
+  $sql3="  UPDATE medicine_status  SET status = '$before' WHERE title='med3_take_before'";
+  $sql4="  UPDATE medicine_status  SET status = '$mor' WHERE title='med3_meal_mor'";
+  $sql5="  UPDATE medicine_status SET status = '$atn' WHERE title='med3_meal_atn'";
+  $sql6="  UPDATE medicine_status  SET status = '$evn' WHERE title='med3_meal_evn'";
+  $sql7="  UPDATE medicine_status  SET status = '$nig' WHERE title='med3_meal_nig'";
+  $sql8="  UPDATE timeedit  SET timeedit =now() WHERE title='med3_edit'";}
+$conn->query($sql1);
+$conn->query($sql2);
+$conn->query($sql3);
+$conn->query($sql4);
+$conn->query($sql5);
+$conn->query($sql6);
+$conn->query($sql7);
+$conn->query($sql8);
+/*if ($conn->query($sql1) === TRUE) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . $conn->error;
@@ -51,6 +94,21 @@ if ($conn->query($sql3) === TRUE) {
     echo "Error updating record: " . $conn->error;
 }
 if ($conn->query($sql4) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+if ($conn->query($sql5) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+if ($conn->query($sql6) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}*/
+if ($conn->query($sql8) === TRUE) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . $conn->error;

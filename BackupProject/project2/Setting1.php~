@@ -7,23 +7,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="jquery-3.2.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-$(document).ready(function(){
 
-	$("#submit1").click(function(){
-
-			$.post("Settime1_POST.php", { 
-			usr_time1: $("#usr_time1").val(), 
-			usr_time2: $("#usr_time2").val(),
-			usr_time3: $("#usr_time3").val(),
-			usr_time4: $("#usr_time4").val()}, 
-				function(usr_time1){
-					alert(usr_time1);
-				}
-			);
-		});
-	});
-</script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -97,7 +81,50 @@ p.customfont {
     font-size: 150%
   }
   </style>
-  
+  <script type="text/javascript">
+  var d = new Date();
+$(document).ready(function(){
+	$('#mor').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#atn').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#evn').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#nig').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$('#before').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+   //alert(this.value);
+}).change();
+	$("#submit2").click(function(){
+
+			$.post("Setting1_POST.php", { 
+			user: $("#user").val(), 
+			pwd: $("#pwd").val(),
+			amount: $("#amount option:selected").val(),
+			add: $("#add option:selected").val(),
+			mor: $("#mor:checked").val(),
+			atn: $("#atn:checked").val(),
+			evn: $("#evn:checked").val(),
+			nig: $("#nig:checked").val(),
+			before: $("#before:checked").val(),
+			timestamp : d
+			}, 
+				function(user){
+					alert(user);
+				}
+			);
+		});
+	});
+</script>
 </head>
 <body style="color:white" >
 
@@ -143,18 +170,17 @@ p.customfont {
               <div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="home.png" class="img-responsive" alt="offline" width="300" height="200"></a>
           </div>
 <br><br>
-  <form method="GET">
+  <form method="GET" action="Setting1_POST.php">
   <div>
       <div class="container col-sm-6" style="color: white">
         <h2>แก้ไขข้อมูลยาเพื่อใช้ในการแจ้งเตือน</h2>
           <h3><div class="form-group">
           <label for="usr">ตัวยาที่ :</label>
-          <select style="color:black" id="user">
-          	<option value="medic1">ยาตัวที่ 1</option>
- 			 	<option value="medic2">ยาตัวที่ 2</option>
-  				<option value="medic3">ยาตัวที่ 3</option>
+          <select style="color:black" id="user" name="user">
+          	<option value="1">ยาตัวที่ 1</option>
+ 			 	<option value="2">ยาตัวที่ 2</option>
+  				<option value="3">ยาตัวที่ 3</option>
           </select>
-          <input type="text" class="form-control" id="usr" name="usr">
           </div></h3>
           <h3><div class="form-group">
           <label for="pwd">สรรพคุณ:</label>
@@ -163,50 +189,51 @@ p.customfont {
           <div class="form-group">
           <h3><label for="pwd">จำนวนยาที่ต้องรับประทานต่อครั้ง:</label>
             <select id="amount" style="color: black" name="amount">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
             </select>
             เม็ด
           </div></h3>
           <h3><div class="form-group">
           <label for="pwd">จำนวนยาที่เพิ่ม:</label>
             <select id="add" style="color: black" name="add">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
             เม็ด
           </div></h1>
-          <h3 style="color: black"><input type="submit" value="ส่งข้อมูล"></h3>
+          <h3 style="color: black"> <input type="button" value="ส่งข้อมูล" id="submit2" ></h3>
       </div>
       <div class="container col-sm-5" style="color:white">
       <h3><label for="pwd">วิธีการรับประทาน</label></h3>
         <div>
-            <div class="checkbox" style="background-color:#3366ff " name="">
-               <label class="checkbox-inline font"><h3><input type="checkbox" value="1">เช้า</h3></label>
-                <label class="checkbox-inline font"><h3><input type="checkbox" value="1">กลางวัน</h3></label>
-                <label class="checkbox-inline font"><h3><input type="checkbox" value="1">เย็น</h3></label>
-                <label class="checkbox-inline font"><h3><input type="checkbox" value="1">ก่อนนอน</h3></label>
+            <div class="checkbox" style="background-color:#3366ff " id="meal">
+               <label class="checkbox-inline font"><h3><input type="checkbox" name="mor" id="mor">เช้า</h3></label>
+                <label class="checkbox-inline font"><h3><input type="checkbox" name="atn" id="atn">กลางวัน</h3></label>
+                <label class="checkbox-inline font"><h3><input type="checkbox" name="evn" id="evn">เย็น</h3></label>
+                <label class="checkbox-inline font"><h3><input type="checkbox" name="nig" id="nig">ก่อนนอน</h3></label>
             </div>
+
 						  <audio id="audio" src="beep.mp3" autostart="false" ></audio>
             <div class="radio">
               <table>
-                <th><label class="radio-inline font"><h3 style="color: white"><input type="radio" name="optradio">ก่อนอาหาร  </h3></label></th>
-                <th><label class="radio-inline font"><h3 style="color: white"><input type="radio" name="optradio">หลังอาหาร  </h3></label></th>
+                <th><label class="radio-inline font"><h3 style="color: white"><input type="radio" name="before" id="before" value="1">ก่อนอาหาร  </h3></label></th>
+                <th><label class="radio-inline font"><h3 style="color: white"><input type="radio" name="before" id="before" value="0">หลังอาหาร  </h3></label></th>
               </table>
             </div>
       </div>
@@ -343,22 +370,8 @@ p.customfont {
   </div>
   
 </div>
-  <script src="modal.js"></script>
-  <script type="text/javascript">
-$(document).ready(function(){
+<script src="modal.js"></script>
+ 
 
-	$("#submit1").click(function(){
-			$.post("Setting1_POST.php",{
-			user: $("#user").val(),
-			pwd: $("#pwd").val(),
-			amount: $("#amount").val(),
-			add: $("#add").val()}, 
-				function(){
-					alert(user);
-				}
-			);
-		});
-	});
-</script>
 </body>
 </html>

@@ -133,17 +133,12 @@ p.customfont {
       </div>
 
       <div class="container-fluid" width="400" height="350">
-        <div class="col-sm-4 "><img id="medic1" src="count_bottles/10.png" class="img-responsive" alt="bottle1" width="400" height="350"></div>
-        <div class="col-sm-4 "><img id="medic2" src="count_bottles/20.png" class="img-responsive" alt="bottle1" width="400" height="350"></div>
-        <div class="col-sm-4 "><img id="medic3" src="count_bottles/30.png" class="img-responsive" alt="bottle1" width="400" height="350"></div>
+        <div class="col-sm-4 "><img id="medic1" class="img-responsive" alt="bottle1" width="400" height="350"></div>
+        <div class="col-sm-4 "><img id="medic2" class="img-responsive" alt="bottle1" width="400" height="350"></div>
+        <div class="col-sm-4 "><img id="medic3"  class="img-responsive" alt="bottle1" width="400" height="350"></div>
       </div>
       <audio id="audio" src="beep.mp3" autostart="false" ></audio>
         <!-- Medicine count picture -->
-        <script type="text/javascript">
-        		$("#medic1").attr("src","count_bottles/10.png");
-        		$("#medic2").attr("src","count_bottles/20.png");
-        		$("#medic3").attr("src","count_bottles/30.png");
-        </script>
           				<div class="container">
   <!-- Trigger the modal with a button -->
  <!--  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">่</button> -->
