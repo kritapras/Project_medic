@@ -270,6 +270,7 @@ p.customfont {
   </div>
   
 </div>
+<div id="timer">2:00</div>
   <script src="modal.js"></script>
 </body>
 </html>

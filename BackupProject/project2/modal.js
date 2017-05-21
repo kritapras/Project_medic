@@ -30,6 +30,29 @@ var flag1 = 0;
 var flag2=1;
 var flag3=1;
 var flag4=1;
+var timeoutHandle;
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var current_minutes = mins-1
+        seconds--;
+        console.log(current_minutes)
+        console.log(seconds)
+        if( seconds > 0 ) {
+            timeoutHandle=setTimeout(tick, 1000);
+        } else {
+
+            if(mins > 1){
+               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+               setTimeout(function () { countdown(mins - 1); }, 1000);
+            }
+        }
+    }
+    tick();
+}
+
+countdown(30);
 var get_edit_time = $.ajax({
             url: 'History_GET.php',
             success: function(data) {
@@ -155,6 +178,7 @@ var get_time = $.ajax({
     				$("#myModal2").modal('show');
     				flag2 = 1;
     			}
+    			/////////////////// modal 3 ///////////////////// 
         		/////////////////// modal 4 ///////////////////// warning ยาใกล้หมด /////////////////
     			if (med1_count < 5 ||med2_count < 5 ||med3_count < 5 ) {
     				var d = new Date();
