@@ -39,6 +39,12 @@ function countdown(minutes) {
         seconds--;
         console.log(current_minutes)
         console.log(seconds)
+        console.log("Flag 3 ="+flag3)
+        if((current_minutes % 5 != 0) & flag3==1) {flag3=0;}
+        if ((current_minutes % 5 == 0) & flag3==0) {
+        	$("#myModal3").modal('show');
+        flag3=1;
+        }
         if( seconds > 0 ) {
             timeoutHandle=setTimeout(tick, 1000);
         } else {
@@ -51,8 +57,6 @@ function countdown(minutes) {
     }
     tick();
 }
-
-countdown(30);
 var get_edit_time = $.ajax({
             url: 'History_GET.php',
             success: function(data) {
@@ -143,7 +147,8 @@ var get_time = $.ajax({
     			var		med1_sol = myObj['med1_sol'];
     			var		med2_sol= myObj['med2_sol'];
     			var   med3_sol= myObj['med3_sol'];
-    			//console.log(myObj['med1_count']);
+    			var	   takenow = myObj['takenow'];
+    			console.log(myObj['takenow']);
     			
     			/////////////////// modal 2 ///////////////////// แจ้เวลากนยา ///////////////////////////
     			if( med1_sol == 0 & med2_sol == 0 & med3_sol == 0){flag2 = 0}
@@ -176,6 +181,7 @@ var get_time = $.ajax({
     				$("#med3_take_count").attr('src', 'count_bottles/3.png');
     			}
     				$("#myModal2").modal('show');
+    				countdown(30)
     				flag2 = 1;
     			}
     			/////////////////// modal 3 ///////////////////// 

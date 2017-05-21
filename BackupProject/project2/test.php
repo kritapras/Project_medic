@@ -34,7 +34,7 @@ function countdown(minutes) {
     tick();
 }
 
-countdown(1);
+countdown(30);
 
 </script>
 </body>

@@ -39,7 +39,7 @@ if ($conn->query($sql8) === TRUE) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . $conn->error;
-}/*
+}
 if ($conn->query($sql1) === TRUE) {
     echo "Record updated successfully";
 } else {
@@ -60,7 +60,7 @@ if ($conn->query($sql4) === TRUE) {
 } else {
     echo "Error updating record: " . $conn->error;
 }
-*/
+
 
 $conn->close();
 ?>

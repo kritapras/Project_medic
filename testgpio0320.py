@@ -20,7 +20,19 @@ sol3 = 0
 flag1= 0
 flag2= 0
 flag3= 0
-flag0 = 0
+flag0 =0
+takenow=0 ### 1 for mor, 2 for atn ,3 for evn, 4 for nig ####
+def upstatustime():
+    global takenow
+    db = MySQLdb.connect("localhost","root","raspberry","medicine")
+    cursor=db.cursor()
+    sql = "UPDATE medicine_status SET status = %d WHERE id = 48" % takenow  
+    try:
+        cursor.execute(sql)
+        db.commit()
+    except:
+        db.rollback()
+        db.close()
 def update():
     global sol1
     global sol2
@@ -127,6 +139,7 @@ def mainfunc():
     global sol1
     global sol2
     global sol3
+    global takenow
     #print "med3 count = %d " % med3
     ###########################################################################################################
     #variable of notification system
@@ -207,7 +220,7 @@ def mainfunc():
     #print "bef1 : tmorm1 : tmormw : tmorhw : tmorh 1"
     print bef1,tmorm1,tmormw,tmorhw,tmorh1
     print "time : %d : %d" %(now.hour,now.minute)
-    print "Flag1 : %d,Flag2 = %d:Flag3 = %d, Flag0 =%d" %(flag1,flag2,flag3,flag0) 
+    print "Flag1 : %d,Flag2 = %d:Flag3 = %d, Flag0 =%d , takenow = %d" %(flag1,flag2,flag3,flag0,takenow) 
     ###########################################################################################################
     #calculate time to use for active soleniod------------------------------------------------------------------
     ##before eat food-------------------------------------------------------------------------------------before
@@ -222,44 +235,60 @@ def mainfunc():
            tmorm1 = tmormw - 30 
            if (tmorm1 == now.minute) & (tmorhw == now.hour):
                sol1 = 1
+               takenow = 1
+               upstatustime()
         if (mor1 == 1) & (tmormw <= 30):
             tmorm1 = 30+tmormw
             tmorh1 = tmorhw - 1
             if (tmorm1 == now.minute) & (tmorh1 == now.hour):
                 sol1 = 1
+                takenow = 1
+                upstatustime()
     ####afternoon
     if bef1 == 1:
         if (atn1 == 1) & (tatnmw >= 30):
             tatnm1 = tatnmw - 30 
             if (tatnm1 == now.minute) & (tatnhw == now.hour):
                 sol1 = 1
+                takenow = 2
+                upstatustime()
         if (atn1 == 1) & (tatnmw <= 30):
             tatnm1  = 30 + tatnmw
             tatnh1 = tatnhw - 1
             if (tatnm1 == now.minute) & (tatnh1 == now.hour):
                 sol1 = 1
+                takenow = 2
+                upstatustime()
     ####evening
     if bef1 == 1:
         if (evn1 == 1) & (tevnmw >= 30):
             tevnm1 = tevnmw - 30 
             if (tevnm1 == now.minute) & (tevnhw == now.hour):
                 sol1 = 1
+                takenow = 3
+                upstatustime()
         if (evn1 == 1) & (tevnmw <= 30):
             tevnm1 = 30 + tevnmw
             tevnh1 = tevnhw - 1
             if (tevnm1 == now.minute) & (tevnh1 == now.hour):
                 sol1 = 1
+                takenow = 3
+                upstatustime()
     ####night
     if bef1 == 1:
         if (nig1 == 1) & (tnigmw >= 30):
             tnigm1 = tnigmw-30 
             if (tnigm1 == now.minute) & (tnighw == now.hour):
                 sol1 = 1
+                takenow = 4
+                upstatustime()
         if (nig1 == 1) & (tnigmw <= 30):
             tnigm1 = 30 + tnigmw
             tnigh1 = tnighw - 1
             if (tnigm1 == now.minute) & (tnigh1 == now.hour):
                 sol1 = 1
+                takenow = 4
+                upstatustime()
     ###medicine 2---------------------------------------------------------------------------2
     ####morning
     if bef2 == 1:
@@ -267,44 +296,60 @@ def mainfunc():
            tmorm2 = tmormw-30 
            if (tmorm2 == now.minute) & (tmorhw == now.hour):
                sol2 = 1
+               takenow = 1
+               upstatustime()
         if (mor2 == 1) & (tmormw <= 30):
             tmorm2 = 30-tmormw
             tmorh2 = tmorhw + 1
             if (tmorm2 == now.minute) & (tmorh2 == now.hour):
                sol2 = 1
+               takenow = 1
+               upstatustime()
     ####afternoon
     if bef2 == 1:
         if (atn2 == 1) & (tatnmw >= 30):
             tatnm2 = tatnmw-30 
             if (tatnm2 == now.minute) & (tatnhw == now.hour):
                 sol2 = 1
+                takenow = 2
+                upstatustime()
         if (atn2 == 1) & (tatnmw <= 30):
             tatnm2 = 30+tatnmw
             tatnh2 = tatnhw - 1
             if (tatnm2 == now.minute) & (tatnh2 == now.hour):
                 sol2 = 1
+                takenow = 2
+                upstatustime()
     ####evening
     if bef2 == 1:
         if (evn2 == 1) & (tevnmw >= 30):
             tevnm2 = tevnmw-30 
             if (tevnm2 == now.minute) & (tevnhw == now.hour):
                 sol2 = 1
+                takenow = 3
+                upstatustime()
         if (evn2 == 1) & (tevnmw <= 30):
             tevnm2 = 30+tevnmw
             tevnh2 = tevnhw - 1
             if (tevnm2 == now.minute) & (tevnh2 == now.hour):
                 sol2 = 1
+                takenow = 3
+                upstatustime()
     ####night
     if bef2 == 1:
         if (nig2 == 1) & (tnigmw >= 30):
             tnigm2 = tnigmw-30 
             if (tnigm2 == now.minute) & (tnighw == now.hour):
                 sol2 = 1
+                takenow = 4
+                upstatustime()
         if (nig2 == 1) & (tnigmw <= 30):
             tnigm2 = 30+tnigmw
             tnigh2 = tnighw - 1
             if (tnigm2 == now.minute) & (tnigh2 == now.hour):
                 sol2 = 1
+                takenow = 4
+                upstatustime()
     ###medicine 3-----------------------------------------------------------------------------3
     ####morning
     if bef3 == 1:
@@ -312,44 +357,60 @@ def mainfunc():
            tmorm3 = tmormw-30 
            if (tmorm3 == now.minute) & (tmorhw == now.hour):
                sol3 = 1
+               takenow = 1
+               upstatustime()
         if (mor3 == 1) & (tmormw <= 30):
             tmorm3= 30+tmormw
             tmorh3 = tmorhw - 1
             if (tmorm3 == now.minute) & (tmorh3 == now.hour):
                sol3 = 1
+               takenow = 1
+               upstatustime()
     ####afternoon
     if bef3 == 1:
         if (atn3 == 1) & (tatnmw >= 30):
             tatnm3 = tatnmw - 30 
             if (tatnm3 == now.minute) & (tatnhw == now.hour):
                 sol3 = 1
+                takenow = 2
+                upstatustime()
         if (atn3 == 1) & (tatnmw <= 30):
             tatnm3 = 30+tatnmw
             tatnh3 = tatnhw - 1
             if (tatnm3 == now.minute) & (tatnh3 == now.hour):
                 sol3 = 1
+                takenow = 2
+                upstatustime()
     ####evening
     if bef3 == 1:
         if (evn3 == 1) & (tevnmw >= 30):
             tevnm3 = tevnmw - 30 
             if (tevnm3 == now.minute) & (tevnhw == now.hour):
                 sol3 = 1
+                takenow = 3
+                upstatustime()
         if (evn3 == 1) & (tevnmw <= 30):
             tevnm3 = 30+tevnmw
             tevnh3 = tevnhw - 1
             if (tevnm3 == now.minute) & (tevnh3 == now.hour):
                 sol3 = 1
+                takenow = 3
+                upstatustime()
     ####night
     if bef3 == 1:
         if (nig3 == 1) & (tnigmw >= 30):
             tnigm3 = tnigmw-30 
             if (tnigm3 == now.minute) & (tnighw == now.hour):
                 sol3 = 1
+                takenow = 4
+                upstatustime()
         if (nig3 == 1) & (tnigmw <= 30):
             tnigm3 = 30+tnigmw
             tnigh3 = tnighw - 1
             if (tnigm3 == now.minute) & (tnigh3 == now.hour):
                 sol3 = 1
+                takenow = 4
+                upstatustime()
     ##after eat food--------------------------------------------------------------------------------------------after
     ###medicine 1----------------------------------------------------------------------------------1
     ####morning
@@ -358,44 +419,61 @@ def mainfunc():
             tmorm1 = tmormw + 30 
             if (tmorm1 == now.minute) & (tmorhw == now.hour):
                 sol1 = 1
+                takenow = 1
+                upstatustime()
         if (mor1 == 1) & (tmormw >= 30):
             tmorm1 = (tmormw + 30)-60
             tmorh1 = tmorhw + 1
             if (tmorm1 == now.minute) & (tmorh1 == now.hour):
                sol1 = 1
+               takenow = 1
+               upstatustime()
     ####afternoon
     if aft1 == 1:
         if (atn1 == 1) & (tatnmw <= 29):
             tatnm1 = tatnmw + 30 
             if (tatnm1 == now.minute) & (tatnhw == now.hour):
                sol1 = 1
+               takenow = 2
+               upstatustime()
+               
         if (atn1 == 1) & (tatnmw <= 30):
             tatnm1  = (tatnmw + 30)-60
             tatnh1 = tatnhw + 1
             if (tatnm1 == now.minute) & (tatnh1 == now.hour):
                sol1 = 1
+               takenow = 2
+               upstatustime()
     ####evening
     if aft1 == 1:
         if (evn1 == 1) & (tevnmw <= 29):
             tevnm1 = tevnmw + 30 
             if (tevnm1 == now.minute) & (tevnhw == now.hour):
                 sol1 = 1
+                takenow = 3
+                upstatustime()
         if (evn1 == 1) & (tevnmw <= 30):
             tevnm1 = (tevnmw + 30)-60
             tevnh1 = tevnhw+1
             if (tevnm1 == now.minute) & (tevnh1 == now.hour):
                sol1 = 1
+               takenow = 3
+               upstatustime()
     ####night
     if aft1 == 1:
         if (nig1 == 1) & (tnigmw <= 29):
             tnigm1 = tnigmw + 30 
             if (tnigm1 == now.minute) & (tnighw == now.hour):
                 sol1 = 1
+                takenow = 4
+                upstatustime()
         if (nig1 == 1) & (tnigmw <= 30):
             tnigm1 = (tnigmw + 30)-60
             tnigh1 = tnighw+1
             if (tnigm1 == now.minute) & (tnigh1 == now.hour):
                sol1 = 1
+               takenow = 4
+               upstatustime()
     ###medicine 2---------------------------------------------------------------------------2
     ####morning
     if aft2 == 1:
@@ -403,44 +481,60 @@ def mainfunc():
            tmorm2 = tmormw + 30 
            if (tmorm2 == now.minute) & (tmorhw == now.hour):
                sol2 = 1
+               takenow = 1
+               upstatustime()
         if (mor2 == 1) & (tmormw <= 30):
             tmorm2 = (tmormw + 30)-60
             tmorh2 = tmorhw+1
             if (tmorm2 == now.minute) & (tmorh2 == now.hour):
                sol2 = 1
+               takenow = 1
+               upstatustime()
     ####afternoon
     if aft2 == 1:
         if (atn2 == 1) & (tatnmw <= 29):
             tatnm2 = tatnmw + 30 
             if (tatnm2 == now.minute) & (tatnhw == now.hour):
                 sol2 = 1
+                takenow = 2
+                upstatustime()
         if (atn2 == 1) & (tatnmw <= 30):
             tatnm2 = (tatnmw + 30)-60
             tatnh2 = tatnhw+1
             if (tatnm2 == now.minute) & (tatnh2 == now.hour):
                sol2 = 1
+               takenow = 2
+               upstatustime()
     ####evening
     if aft2 == 1:
         if (evn2 == 1) & (tevnmw <= 29):
             tevnm2 = tevnmw + 30 
             if (tevnm2 == now.minute) & (tevnhw == now.hour):
                 sol2 = 1
+                takenow = 3
+                upstatustime()
         if (evn2 == 1) & (tevnmw <= 30):
             tevnm2 = (tevnmw + 30)-60
             tevnh2 = tevnhw+1
             if (tevnm2 == now.minute) & (tevnh2 == now.hour):
                sol2 = 1
+               takenow = 3
+               upstatustime()
     ####night
     if aft2 == 1:
         if (nig2 == 1) & (tnigmw <= 29):
             tnigm2 = tnigmw + 30 
             if (tnigm2 == now.minute) & (tnighw == now.hour):
                 sol2 = 1
+                takenow = 4
+                upstatustime()
         if (nig2 == 1) & (tnigmw <= 30):
             tnigm2 = (tnigmw + 30)-60
             tnigh2 = tnighw+1
             if (tnigm2 == now.minute) & (tnigh2 == now.hour):
                sol2 = 1
+               takenow = 4
+               upstatustime()
     ###medicine 3-----------------------------------------------------------------------------3
     ####morning
     if aft3 == 1:
@@ -448,44 +542,60 @@ def mainfunc():
            tmorm3 = tmormw + 30 
            if (tmorm3 == now.minute) & (tmorhw == now.hour):
                sol3 = 1
+               takenow = 1
+               upstatustime()
         if (mor3 == 1) & (tmormw <= 30):
             tmorm3= (tmormw + 30)-60
             tmorh3 = tmorhw+1
             if (tmorm3 == now.minute) & (tmorh3 == now.hour):
                sol3 = 1
+               takenow = 1
+               upstatustime()
     ####afternoon
     if aft3 == 1:
         if (atn3 == 1) & (tatnmw <= 29):
             tatnm3 = tatnmw + 30 
             if (tatnm3 == now.minute) & (tatnhw == now.hour):
                 sol3 = 1
+                takenow = 2
+                upstatustime()
         if (atn3 == 1) & (tatnmw <= 30):
             tatnm3 = (tatnmw + 30)-60
             tatnh3 = tatnhw+1
             if (tatnm3 == now.minute) & (tatnh3 == now.hour):
                sol3 = 1
+               takenow = 2
+               upstatustime()
     ####evening
     if aft3 == 1:
         if (evn3 == 1) & (tevnmw <= 29):
             tevnm3 = tevnmw + 30 
             if (tevnm3 == now.minute) & (tevnhw == now.hour):
                 sol3 = 1
+                takenow = 3
+                upstatustime()
         if (evn3 == 1) & (tevnmw <= 30):
             tevnm3 = (tevnmw + 30)-60
             tevnh3 = tevnhw+1
             if (tevnm3 == now.minute) & (tevnh3 == now.hour):
                sol3 = 1
+               takenow = 3
+               upstatustime()
     ####night
     if aft3 == 1:
         if (nig3 == 1) & (tnigmw <= 29):
             tnigm3 = tnigmw + 30 
             if (tnigm3 == now.minute) & (tnighw == now.hour):
                 sol3 = 1
+                takenow = 4
+                upstatustime()
         if (nig3 == 1) & (tnigmw <= 30):
             tnigm3 = (tnigmw + 30)-60
             tnigh3 = tnighw+1
             if (tnigm3 == now.minute) & (tnigh3 == now.hour):
                sol3 = 1
+               takenow = 4
+               upstatustime()
     update()   
     # output (solenoid)----------------------------------------------------------------------------------
     #if (sol1 == 1)&(sol2 == 1)&(sol3 == 1):
@@ -533,7 +643,7 @@ def mainfunc():
     if(((flag1==1) | (flag2 == 1) | (flag3 ==1)) & (flag0 ==0)):
         flag0=1
         print "flag0 = %d" % flag0
-        send.sendsms()
+        #send.sendsms()
         
         
 
