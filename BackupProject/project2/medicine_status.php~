@@ -41,6 +41,8 @@ $conn->set_charset("utf8");
     $buff22 = $medicine_status[21];
     $buff23 = $medicine_status[22];
 	 $buff24 = $medicine_status[23];
+	 $buff25 = $medicine_status[24];
+	 
     
     //print_r($medicine_status);
     
@@ -68,6 +70,7 @@ $conn->set_charset("utf8");
     $med1_sol = $buff22['status'];
     $med2_sol = $buff23['status'];
     $med3_sol = $buff24['status'];
+    $takenow = $buff25['status'];
     
     $medicJSON['med1_count']= $buff1['status'];
     $medicJSON['med2_count']= $buff2['status'];
@@ -93,6 +96,7 @@ $conn->set_charset("utf8");
     $medicJSON['med1_sol']= $buff22['status'];
     $medicJSON['med2_sol']= $buff23['status'];
     $medicJSON['med3_sol']= $buff24['status'];
+    $medicJSON['med3_sol']= $buff25['status'];
     //print_r ($medicJSON);
 
     echo json_encode($medicJSON);

@@ -139,7 +139,7 @@ $(document).ready(function(){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
-        <li class="li"><a href="index.php">สารบัญ</a></li>
+        <li class="li"><a href="index.php">อ่านฉลากยา</a></li>
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
         <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>

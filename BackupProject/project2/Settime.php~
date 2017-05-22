@@ -226,11 +226,11 @@ p.customfont {
             <div class="modal-body">
               <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
               <h2><span class="label label-success">หน้าหลัก</span></h2><br>
-              <p>รับประทานมื้อ : <div id="meal"></div> : <div id="before">ก่อนอาหาร</div> </p>
+              <p id="mealbf">รับประทานมื้อ</p>
             <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img id="med1_take_count" class="img-responsive"></th>
-                    <th><img id="med2_take_count" class="img-responsive"></th>
-                    <th><img id="med3_take_count" class="img-responsive"></th>
+                    <th><img id="med1_take_count"src="template/take/1.png" class="img-responsive"></th>
+                    <th><img id="med2_take_count" src="template/take/2.png" class="img-responsive"></th>
+                    <th><img id="med3_take_count" src="template/take/1.png" class="img-responsive"></th>
               </table>              
             </div>
             <div class="modal-footer">
@@ -296,7 +296,7 @@ p.customfont {
                   <table class="table-responsive " align="center">
                     <tr>
                       <td>เหลือจำนวน</td>
-                      <td style="border-color: red;border-style: solid;border-width: 3px">5</td>
+                      <td style="border-color: red;border-style: solid;border-width: 3px" id="medcount">5</td>
                       <td>เม็ด</td>
                     </tr>
                   </table>
@@ -312,6 +312,6 @@ p.customfont {
   </div>
   
 </div>
-  <script src="modal.js"></script>
+  <script src="modal2.js"></script>
 </body>
 </html>

@@ -18,12 +18,11 @@ $conn->set_charset("utf8");
     	$medicine_time[]=$row;
     }
     //echo json_encode($medicine_time);
-    echo $medicine_time[0]['timeedit'];
-    echo $medicine_time[1]['timeedit'];
-    /*$medicJSON['med1_edit'] = $medicine_time[0]['timeedit'];
-    $medicJSON['med2_edit'] = $medicine_time[1]['timeedit'];
-    $medicJSON['med3_edit'] = $medicine_time[2]['timeedit'];
-    $medicJSON['time_edit'] = $medicine_time[3]['timeedit'];
-    echo json_encode($medicJSON);*/
+    $medicJSON[0]=$medicine_time[0]['timeedit'];
+    $medicJSON[1]=$medicine_time[1]['timeedit'];
+     $medicJSON[2]=$medicine_time[2]['timeedit'];
+     $medicJSON[3]=$medicine_time[3]['timeedit'];
+     print_r($medicJSON);
+    echo json_encode($medicJSON);
 $conn->close();
 ?>

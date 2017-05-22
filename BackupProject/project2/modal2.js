@@ -37,8 +37,8 @@ function countdown(minutes) {
     function tick() {
         var current_minutes = mins-1
         seconds--;
-        console.log(current_minutes)
-        console.log(seconds)
+        console.log("current_minutes"+current_minutes)
+        console.log("second"+seconds)
         console.log("Flag 3 ="+flag3)
         if((current_minutes % 5 != 0) & flag3==1) {flag3=0;}
         if ((current_minutes % 5 == 0) & flag3==0) {
@@ -58,19 +58,20 @@ function countdown(minutes) {
     }
     tick();
 }
+countdown(30)
 var get_edit_time = $.ajax({
             url: 'History_GET.php',
             success: function(data) {
-                console.dir("time =:"+data)
+                //console.dir("time =:"+data)
                 var a = data;
-                console.dir(typeof(a))
+                //console.dir(typeof(a))
                 get_edit_time = JSON.parse(data);
-                console.dir(data.med1_edit)
+                //console.dir(data.med1_edit)
                  var med1_edit = get_edit_time[0];
       				var med2_edit = get_edit_time[1];
       				var med3_edit = get_edit_time[2];
       				var timeedit = get_edit_time[3];
-      				console.dir(med1_edit)
+      				//console.dir(med1_edit)
       				//console.log(m)
 						$("#med1_edit").text(med1_edit);
 						console.dir(med1_edit)
@@ -149,7 +150,7 @@ var get_time = $.ajax({
     			var		med2_sol= myObj['med2_sol'];
     			var   med3_sol= myObj['med3_sol'];
     			var	   takenow = myObj['takenow'];
-    			console.log(myObj['takenow']);
+    			console.log("takenow ="+myObj['takenow']);
     			
     			/////////////////// modal 2 ///////////////////// แจ้เวลากนยา ///////////////////////////
     			 if (med1_take_count==1) {
@@ -179,7 +180,7 @@ var get_time = $.ajax({
     			else if(med3_take_count==3){
     				$("#med3_take_count").attr('src', 'count_bottles/3.png');
     			}
-    			if( med1_sol == 0 & med2_sol == 0 & med3_sol == 0){flag2 = 0}
+    			if( med1_sol == 0 & med2_sol == 0 & med3_sol == 0){flag2 = 0;}
     			if ((med1_sol == 1 || med2_sol == 1 || med3_sol == 1) & (flag2==0)) {
     				PlaySound();
     				$("#myModal2").modal('show');
@@ -188,7 +189,6 @@ var get_time = $.ajax({
     			}
     			$("#mealbf").text("รับประทานอาหารมื้อ ; เช้า ; ก่อนอาหาร");
     			/////////////////// modal 3 ///////////////////// 
-/*
     			if((med1_take_before == 1) || (med1_take_before == 1) || (med1_take_before == 1) ){
 			if(takenow == 1 && ((med1_meal_mor ==1) || (med2_meal_mor== 1) || (med3_meal_evn == 1 ))){
     			$("#mealbf").text("รับประทานอาหารมื้อ ; เช้า ; ก่อนอาหาร");
@@ -217,25 +217,25 @@ var get_time = $.ajax({
     			$("#mealbf").text("รับประทานอาหารมื้อ ; ก่อนนอน ; หลังอาหาร");
     			}
     		}
-*/
         		/////////////////// modal 4 ///////////////////// warning ยาใกล้หมด /////////////////
-        		if ((med1_count < med2_count) &(med1_count < med3_count)) 
+        		if ((med1_count <=med2_count) &(med1_count <=med3_count)) 
     						{
     							$("#medcount").text(med1_count);
     					}
-    					else if ((med2_count < med1_count) &(med2_count < med3_count))  {
+    					else if ((med2_count <= med1_count) &(med2_count <= med3_count))  {
     						$("#medcount").text(med2_count);
     					}
-    					else if ((med3_count < med1_count) &(med3_count < med1_count))  {
+    					else if ((med3_count <= med1_count) &(med3_count <= med1_count))  {
     						$("#medcount").text(med3_count);
     					}
-    					console.log(med1_count+med2_count+med3_count)
+
+    					//console.log(med1_count+med2_count+med3_count)
     			if ((med1_count < 5) ||(med2_count < 5) ||(med3_count < 5 )) {
     				var d = new Date();
     				var m = d.getMinutes();
     				var h = d.getHours();
     				//console.log(m);
-    				if (m % 30 != 0) {flag4 = 0;}
+    				if (m % 30 == 0) {flag4 = 0;}
     						if (((m % 30)==0) & flag4 ==0) {
     						$("#myModal4").modal('show');
     						PlaySound();

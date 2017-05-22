@@ -128,7 +128,7 @@ p.customfont {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
-        <li class="li"><a href="index.php">สารบัญ</a></li>
+        <li class="li"><a href="index.php">่านฉลากยา</a></a></li>
        <!-- <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>

@@ -129,7 +129,7 @@ p.customfont {
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
         <li class="li"><a href="index.php">สารบัญ</a></li>
-        <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>
+       <!-- <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
         <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
@@ -173,22 +173,22 @@ p.customfont {
     <tbody>
       <tr>
         <td>1</td>
-        <td></td>
+        <td id="med1_edit"></td>
         <td>แก้ไขข้อมลยาที่ 1 ล่าสุด</td>
       </tr>
       <tr>
         <td>2</td>
-        <td></td>
+        <td id="med2_edit"></td>
         <td>แก้ไขข้อมลยาที่ 2 ล่าสุด</td>
       </tr>
       <tr>
         <td>3</td>
-        <td></td>
+        <td id="med3_edit"></td>
         <td>แก้ไขข้อมลยาที่ 3 ล่าสุด</td>
       </tr>
       <tr>
         <td>4</td>
-        <td></td>
+        <td id="timeedit"></td>
         <td>แก้ไขเวลารับประทานยาล่าสุด</td>
       </tr>
     </tbody>

@@ -116,7 +116,7 @@ $(document).ready(function(){
 			evn: $("#evn:checked").val(),
 			nig: $("#nig:checked").val(),
 			before: $("#before:checked").val(),
-			timestamp : d
+			d : d
 			}, 
 				function(user){
 					alert(user);

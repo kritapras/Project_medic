@@ -21,7 +21,7 @@ $conn->set_charset("utf8");
     echo "เวลารับประทานอาหารเที่ยง :".$usr_time2."\n";
     echo "เวลารับประทานอาหารเย็น :".$usr_time3."\n";
     echo "เวลารับประทานยาก่อนนอน :".$usr_time4."\n";
-	 $sql8="  UPDATE timeedit  SET timeedit =now() WHERE title='timeedit'";
+	 $sql8="  UPDATE timeedit  SET timeedit =now() WHERE title='time_edit'";
     $sql1="  UPDATE timetake 
             SET timeeat= '$usr_time1'
             WHERE period='morning'";
