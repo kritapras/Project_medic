@@ -7,10 +7,35 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="jquery-3.2.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="modal.js"></script>
   <p id="demo">5555</p> 
-  <div id="timer"></div>
-  <script src="modal.js"></script>
+  <div id="time"></div>
+<label id="minutes">00</label>:<label id="seconds">50</label>
+    <script type="text/javascript">
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+    </script>
 
 </body>
 </head>

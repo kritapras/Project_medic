@@ -37,10 +37,10 @@ function countdown(minutes) {
     function tick() {
         var current_minutes = mins-1
         seconds--;
-        console.log("current_minutes"+current_minutes)
-        console.log("second"+seconds)
+        console.log("current_minutes"+current_minutes+"second"+seconds)
+        //console.log("second"+seconds)
         console.log("Flag 3 ="+flag3)
-        if((current_minutes % 5 != 0) & flag3==1) {flag3=0;}
+        if((current_minutes == 0) & flag3==1) {flag3=0;}
         if ((current_minutes % 5 == 0) & flag3==0) {
         	$("#myModal3").modal('show');
         	PlaySound();
@@ -149,7 +149,7 @@ var get_time = $.ajax({
     			var		med2_sol= myObj['med2_sol'];
     			var   med3_sol= myObj['med3_sol'];
     			var	   takenow = myObj['takenow'];
-    			console.log("takenow ="+myObj['takenow']);
+    			//console.log("takenow ="+myObj['takenow']);
     			
     			/////////////////// modal 2 ///////////////////// แจ้เวลากนยา ///////////////////////////
     			 if (med1_take_count==1) {
@@ -526,7 +526,7 @@ var get_time = $.ajax({
       				var tatn = get_time[1];
       				var tevn = get_time[2];
       				var tnig = get_time[3];
-      				console.log(m)
+      				//console.log(m)
             }});
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $.ajax({

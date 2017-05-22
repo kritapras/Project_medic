@@ -129,22 +129,43 @@ p.customfont {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
-        <li class="li"><a href="index.php">สารบัญ</a></li>
+        <li class="li"><a href="index.php">อ่านฉลากยา</a></li>
         <!--<li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
         <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
         <li class="li"><a href="Settime.php">แก้ไขเวลารับประทานยา</a></li>
         <li class="li"><a href="History.php">ประวัติ</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>
+        <!--<li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>-->
       </ul></b>
       <ul class="nav navbar-nav navbar-right thai">
         <li>
             <table style="width:100%;font-size: 250%;width: 200px"> 
-              <th style="text-align: center; color: white"><img src="online.png" class="img-responsive" alt="Online" width="40" height="60">ผู้ใช้</th>
+              <th style="text-align: center; color: white" ><img src="online.png" id="user1" class="img-responsive" alt="online" width="40" height="60">ผู้ใช้</th>
 
-              <th style="text-align: center; color: white"><img src="offline.png" class="img-responsive" alt="offline" width="40" height="60">ญาติ</th>
+              <th style="text-align: center; color: white" ><img src="offline.png" id="user2" class="img-responsive" alt="offline" width="40" height="60">ญาติ</th>
             </table>
+           <script type="text/javascript">
+            				if ( $("#user1").attr('src') == "online.png") {
+            					$("#user1").click(function () 
+            					{
+									$("#user1").attr('src', "offline.png");
+									$("#user2").attr('src', "online.png");
+								});
+            				}
+            				else if ($("#user1").attr('src') == "offline.png" ) {
+            					$("#user1").click(function () 
+            					{
+									$("#user1").attr('src', "online.png");
+									$("#user2").attr('src', "offline.png");
+								});
+            				}
+            				$('#user1').on({
+    'click': function(){
+        $('#user1').attr('src','offline.png');
+    }
+});
+            </script>
           </li>
       </ul>
     </div>

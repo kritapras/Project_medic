@@ -612,39 +612,42 @@ def mainfunc():
     #    print "Solenoid 3: ON"
     if (sol1 == 1) & (flag1 == 0):
         update()
-        GPIO.output(8,1)
-        print "Solenoid 1: ON"
-        time.sleep(2)
-        GPIO.output(8,0)
-        print "Solenoid 1: OFF"
-        time.sleep(2)
-        flag1=1
-        #popup
-     #time.sleep(10)
+        for i in range (0,medic_count1):
+            GPIO.output(8,1)
+            print "Solenoid 1: ON"
+            time.sleep(2)
+            GPIO.output(8,0)
+            print "Solenoid 1: OFF"
+            time.sleep(2)
+            flag1=1
+            #popup
+            #time.sleep(10)
      
     if (sol2 == 1)  & (flag2 == 0):
         update()
-        GPIO.output(10,1)
-        print "Solenoid 2: ON"
-        time.sleep(2)
-        GPIO.output(10,0)
-        print "Solenoid 2: OFF"
-        time.sleep(2)
-        flag2=1
-        #popup
-        #time.sleep(10)
+        for j in range (0,medic_count2):
+            GPIO.output(10,1)
+            print "Solenoid 2: ON"
+            time.sleep(2)
+            GPIO.output(10,0)
+            print "Solenoid 2: OFF"
+            time.sleep(2)
+            flag2=1
+            #popup
+            #time.sleep(10)
          
     if (sol3 == 1)  & (flag3 == 0):
         update()
-        GPIO.output(12,1)
-        print "Solenoid 3: ON"
-        time.sleep(2)
-        GPIO.output(12,0)
-        print "Solenoid 3: OFF"
-        time.sleep(2)
-        flag3=1
-        #popup
-        #time.sleep(10)
+        for k in range (0,medic_count3):
+            GPIO.output(12,1)
+            print "Solenoid 3: ON"
+            time.sleep(2)
+            GPIO.output(12,0)
+            print "Solenoid 3: OFF"
+            time.sleep(2)
+            flag3=1
+            #popup
+            #time.sleep(10)
     if(((flag1==1) | (flag2 == 1) | (flag3 ==1)) & (flag0 ==0)):
         flag0=1
         print "flag0 = %d" % flag0
@@ -653,9 +656,6 @@ def mainfunc():
     #GPIO.output(8,0) #### med3
     #GPIO.output(10,0) #### med2
     #GPIO.output(12,0) ### med1 con
-        
-        
-
     #add pop up
 
     # sensor: count number of medicine-------------------------------------------------------------------
