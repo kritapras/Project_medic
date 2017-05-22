@@ -226,11 +226,11 @@ p.customfont {
             <div class="modal-body">
               <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
               <h2><span class="label label-success">หน้าหลัก</span></h2><br>
-              <p>รับประทานมื้อ : เช้า : ก่อนอาหาร </p>
+              <p>รับประทานมื้อ : <div id="meal"></div> : <div id="before">ก่อนอาหาร</div> </p>
             <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img id="med1_take_count"src="template/take/1.png" class="img-responsive"></th>
-                    <th><img id="med2_take_count" src="template/take/2.png" class="img-responsive"></th>
-                    <th><img id="med3_take_count" src="template/take/1.png" class="img-responsive"></th>
+                    <th><img id="med1_take_count" class="img-responsive"></th>
+                    <th><img id="med2_take_count" class="img-responsive"></th>
+                    <th><img id="med3_take_count" class="img-responsive"></th>
               </table>              
             </div>
             <div class="modal-footer">

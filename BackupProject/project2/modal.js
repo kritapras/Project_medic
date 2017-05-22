@@ -1,7 +1,7 @@
- var med1_count = 0;
-var	 med2_count = 0;
-var	 med3_count = 0;
-var	 med1_take_count = 0;
+var  med1_count = 0;
+var	  med2_count = 0;
+var	  med3_count = 0;
+var	  med1_take_count = 0;
 var		med2_take_count = 0;
 var		med3_take_count = 0;
 var		med1_take_before = 0;
@@ -152,6 +152,9 @@ var get_time = $.ajax({
     			
     			/////////////////// modal 2 ///////////////////// แจ้เวลากนยา ///////////////////////////
     			if( med1_sol == 0 & med2_sol == 0 & med3_sol == 0){flag2 = 0}
+    			////////////////////// picture ///////////////////////// modal //////////////////////////
+    			$("#meal").text("สัสอนเช้า");
+    			$("#before").text("สัอ่าย");
     			if ((med1_sol == 1 || med2_sol == 1 || med3_sol == 1) & (flag2==0)) {
     				if (med1_take_count==1) {
     				$("#med1_take_count").attr('src', 'count_bottles/1.png');
@@ -207,7 +210,8 @@ var get_time = $.ajax({
     						PlaySound();
     						flag4 = 1;
     							}
-    						}
+    				}
+    				/////////////// picture ////////////////// in information.php /////////////// 
     						if(med1_count == 1){
     						$("#medic1").attr('src', 'count_bottles/1.png');
     					}
