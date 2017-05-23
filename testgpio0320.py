@@ -58,16 +58,17 @@ def update():
         db.close()
 def my_callback(channel):
     global med1
-    med1 = med1 - 1
+    if (med1 > 0):
+        med1 = med1 - 1
     print "medicine1 count : %d" % med1
     print GPIO.input(11)
     db = MySQLdb.connect("localhost","root","raspberry","medicine")
     cursor=db.cursor()
     sql = "UPDATE medicine_status SET status = %d WHERE id = 24" % med1  
     try:
-   # Execute the SQL command
+    #Execute the SQL command
         cursor.execute(sql)
-        #print "succes"
+        print "succes"
    # Commit your changes in the database
         db.commit()
     except:
@@ -78,9 +79,10 @@ def my_callback(channel):
         db.close()
 def my_callback2(channel):
     global med2
-    med2 = med2 - 1
+    if (med2 > 0):
+        med2 = med2 - 1
     print "medicine2 count : %d" % med2
-    print GPIO.input(13)
+    #print GPIO.input(13)
     db = MySQLdb.connect("localhost","root","raspberry","medicine")
     cursor=db.cursor()
     sql = "UPDATE medicine_status SET status = %d WHERE id = 25" % med2  
@@ -92,9 +94,10 @@ def my_callback2(channel):
         db.close()
 def my_callback3(channel):
     global med3
-    med3 = med3 - 1
+    if (med3 >0):
+        med3 = med3 - 1
     print "medicine3 count : %d" % med3
-    print GPIO.input(15)
+    #print GPIO.input(7)
     db = MySQLdb.connect("localhost","root","raspberry","medicine")
     cursor=db.cursor()
     sql = "UPDATE medicine_status SET status = %d WHERE id = 26" % med3  
@@ -119,10 +122,10 @@ sen2 = 13
 sen3 = 15
 GPIO.setup(11,GPIO.IN)
 GPIO.setup(13,GPIO.IN)
-GPIO.setup(15,GPIO.IN)
+GPIO.setup(7,GPIO.IN)
 GPIO.add_event_detect(11, GPIO.FALLING, callback=my_callback, bouncetime=1000)
 GPIO.add_event_detect(13, GPIO.FALLING, callback=my_callback2, bouncetime=1000)
-GPIO.add_event_detect(15, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
+GPIO.add_event_detect(7, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
 GPIO.setup(8,GPIO.OUT)
 GPIO.setup(10,GPIO.OUT)
 GPIO.setup(12,GPIO.OUT)
@@ -211,7 +214,7 @@ def mainfunc():
     #time of system-------------------------------------------------------------------------------------------
     #print("Current time and date:")
     #print(str(now))
-    print db.status
+    #print db.status
     #print("Current hour: %d" %now.hour)
     #print("Current minute: %d" %now.minute)
     #GPIO.output(14,0) #solenoid 1
@@ -219,8 +222,8 @@ def mainfunc():
     #GPIO.output(18,0)
     #print "bef1 : tmorm1 : tmormw : tmorhw : tmorh 1"
     print bef1,tmorm1,tmormw,tmorhw,tmorh1
-    print "time : %d : %d" %(now.hour,now.minute)
-    print "Flag1 : %d,Flag2 = %d:Flag3 = %d, Flag0 =%d , takenow = %d" %(flag1,flag2,flag3,flag0,takenow) 
+    #print "time : %d : %d" %(now.hour,now.minute)
+    #print "Flag1 : %d,Flag2 = %d:Flag3 = %d, Flag0 =%d , takenow = %d" %(flag1,flag2,flag3,flag0,takenow) 
     ###########################################################################################################
     #calculate time to use for active soleniod------------------------------------------------------------------
     ##before eat food-------------------------------------------------------------------------------------before
@@ -417,7 +420,7 @@ def mainfunc():
     ##after eat food--------------------------------------------------------------------------------------------after
     ###medicine 1----------------------------------------------------------------------------------1
     ####morning
-    print ("aft = %d,tmorw = %d , tmorh = %d") % (aft1,tmormw,tmorhw)
+    #print ("aft = %d,tmorw = %d , tmorh = %d") % (aft1,tmormw,tmorhw)
     if aft1 == 1:
         if (mor1 == 1) & (tmormw <= 29):
             tmorm1 = tmormw + 30 
