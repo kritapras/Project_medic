@@ -94,6 +94,7 @@ def my_callback2(channel):
         db.close()
 def my_callback3(channel):
     global med3
+    GPIO.remove_event_detect(channel)
     if (med3 >0):
         med3 = med3 - 1
     print "medicine3 count : %d" % med3
@@ -123,9 +124,6 @@ sen3 = 15
 GPIO.setup(11,GPIO.IN)
 GPIO.setup(13,GPIO.IN)
 GPIO.setup(7,GPIO.IN)
-GPIO.add_event_detect(11, GPIO.FALLING, callback=my_callback, bouncetime=1000)
-GPIO.add_event_detect(13, GPIO.FALLING, callback=my_callback2, bouncetime=1000)
-GPIO.add_event_detect(7, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
 GPIO.setup(8,GPIO.OUT)
 GPIO.setup(10,GPIO.OUT)
 GPIO.setup(12,GPIO.OUT)
@@ -615,6 +613,8 @@ def mainfunc():
     #    print "Solenoid 3: ON"
     if (sol1 == 1) & (flag1 == 0):
         update()
+        #GPIO.remove_event(11)
+        GPIO.add_event_detect(11, GPIO.FALLING, callback=my_callback, bouncetime=1000)
         for i in range (0,medic_count1):
             GPIO.output(8,1)
             print "Solenoid 1: ON"
@@ -625,9 +625,12 @@ def mainfunc():
             flag1=1
             #popup
             #time.sleep(10)
+        GPIO.remove_event_detect(11)
      
     if (sol2 == 1)  & (flag2 == 0):
         update()
+        #GPIO.remove_event(13)
+        GPIO.add_event_detect(13, GPIO.FALLING, callback=my_callback2, bouncetime=1000)
         for j in range (0,medic_count2):
             GPIO.output(10,1)
             print "Solenoid 2: ON"
@@ -638,9 +641,12 @@ def mainfunc():
             flag2=1
             #popup
             #time.sleep(10)
+        GPIO.remove_event_detect(13)
          
     if (sol3 == 1)  & (flag3 == 0):
         update()
+        #GPIO.remove_event(7)
+        GPIO.add_event_detect(7, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
         for k in range (0,medic_count3):
             GPIO.output(12,1)
             print "Solenoid 3: ON"
@@ -651,6 +657,7 @@ def mainfunc():
             flag3=1
             #popup
             #time.sleep(10)
+        GPIO.remove_event_detect(7)
     if(((flag1==1) | (flag2 == 1) | (flag3 ==1)) & (flag0 ==0)):
         flag0=1
         print "flag0 = %d" % flag0
@@ -658,7 +665,7 @@ def mainfunc():
 
     #GPIO.output(8,0) #### med3
     #GPIO.output(10,0) #### med2
-    #GPIO.output(12,0) ### med1 con
+    #GPIO.output(12,1) ### med1 con
     #add pop up
 
     # sensor: count number of medicine-------------------------------------------------------------------
