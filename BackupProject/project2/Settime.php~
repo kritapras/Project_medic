@@ -129,7 +129,7 @@ p.customfont {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
-        <li class="li"><a href="index.php">สารบัญ</a></li>
+        <li class="li"><a href="index.php">อ่านฉลากยา</a></li>
         <!--<li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
@@ -146,11 +146,23 @@ p.customfont {
               <th style="text-align: center; color: white" ><img src="offline.png" id="user2" class="img-responsive" alt="offline" width="40" height="60">ญาติ</th>
             </table>
            <script type="text/javascript">
-            				if ( $("#user1").attr('src') == "online.png") {
-            					$("#user1").click(function () 
+           var attr1 =
+           var attr2=
+           $("#user1").click(function () 
             					{
 									$("#user1").attr('src', "offline.png");
 									$("#user2").attr('src', "online.png");
+								});
+			$("#user2").click(function () 
+            					{
+									$("#user2").attr('src', "offline.png");
+									$("#user1").attr('src', "online.png");
+								});
+            				if ( $("#user1").attr('src') == "online.png") {
+            					$("#user1").click(function () 
+            					{
+									$("#user2").attr('src', "offline.png");
+									$("#user1").attr('src', "online.png");
 								});
             				}
             				else if ($("#user1").attr('src') == "offline.png" ) {
@@ -160,11 +172,20 @@ p.customfont {
 									$("#user2").attr('src', "offline.png");
 								});
             				}
-            				$('#user1').on({
-    'click': function(){
-        $('#user1').attr('src','offline.png');
-    }
-});
+            				if ( $("#user2").attr('src') == "online.png") {
+            					$("#user2").click(function () 
+            					{
+									$("#user1").attr('src', "offline.png");
+									$("#user2").attr('src', "online.png");
+								});
+            				}
+            				else if ($("#user2").attr('src') == "offline.png" ) {
+            					$("#user1").click(function () 
+            					{
+									$("#user2").attr('src', "online.png");
+									$("#user1").attr('src', "offline.png");
+								});
+            				}
             </script>
           </li>
       </ul>
@@ -179,9 +200,10 @@ p.customfont {
 
               <div>
           		<div class="bg-1 col-sm-6 container"></div>
-          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="return.png" class="img-responsive" alt="online" width="300" height="200"></a>
+          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="return.png" class="img-responsive"  width="400" height="15" ></a>
           		</div>
-          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="home.png" class="img-responsive" alt="offline" width="300" height="200"></a>
+          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="home.png" class="img-responsive"  width="300" height="15"></a>
+          		
           </div>
 <br><br><br><br><br><br>
     <h1><div class="bg-1 text-center" style="width: 100%" style="height: 100%">
@@ -232,7 +254,7 @@ p.customfont {
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal2">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal2">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal2" role="dialog">
@@ -249,9 +271,9 @@ p.customfont {
               <h2><span class="label label-success">หน้าหลัก</span></h2><br>
               <p id="mealbf">รับประทานมื้อ</p>
             <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img id="med1_take_count"src="template/take/1.png" class="img-responsive"></th>
-                    <th><img id="med2_take_count" src="template/take/2.png" class="img-responsive"></th>
-                    <th><img id="med3_take_count" src="template/take/1.png" class="img-responsive"></th>
+                    <th><img id="med1_take_count" class="img-responsive"></th>
+                    <th><img id="med2_take_count"  class="img-responsive"></th>
+                    <th><img id="med3_take_count" class="img-responsive"></th>
               </table>              
             </div>
             <div class="modal-footer">
@@ -267,7 +289,7 @@ p.customfont {
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal3">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal3">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal3" role="dialog">
@@ -297,7 +319,7 @@ p.customfont {
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal4" role="dialog">
@@ -313,7 +335,7 @@ p.customfont {
               <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
               <h2><span class="label label-success">แจ้งเตือนยาใกล้หมด</span></h2><br>
               <h1  style="text-align: center; font-size: 200%">
-                ยา : แอสไพริน
+                <p id="Ya"></p>
                   <table class="table-responsive " align="center">
                     <tr>
                       <td>เหลือจำนวน</td>
@@ -333,6 +355,6 @@ p.customfont {
   </div>
   
 </div>
-  <script src="modal2.js"></script>
+  <script src="modal3.js"></script>
 </body>
 </html>

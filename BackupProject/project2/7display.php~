@@ -294,6 +294,6 @@ p.customfont {
   </div>
   
 </div>
-  <script src="modal.js"></script>
+  <script src="modal3.js"></script>
 </body>
 </html>

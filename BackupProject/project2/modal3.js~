@@ -1,24 +1,24 @@
- var med1_count = 0;
-var	 med2_count = 0;
-var	 med3_count = 0;
-var	 med1_take_count = 0;
-var		med2_take_count = 0;
-var		med3_take_count = 0;
-var		med1_take_before = 0;
-var		med2_take_before = 0;
-var		med3_take_before = 0;
-var		med1_meal_mor = 0;
-var		med2_meal_mor = 0;
-var		med3_meal_mor = 0;
-var		med1_meal_atn = 0;
-var		med2_meal_atn = 0;
-var		med3_meal_atn = 0;
-var		med1_meal_evn = 0;
-var		med2_meal_evn = 0;
-var		med3_meal_evn = 0;
-var		med1_meal_nig = 0;
-var		med2_meal_nig = 0;
-var		med3_meal_nig = 0;
+var med1_count = 0;
+var med2_count = 0;
+var med3_count = 0;
+var med1_take_count = 0;
+var med2_take_count = 0;
+var med3_take_count = 0;
+var med1_take_before = 0;
+var med2_take_before = 0;
+var med3_take_before = 0;
+var med1_meal_mor = 0;
+var med2_meal_mor = 0;
+var med3_meal_mor = 0;
+var med1_meal_atn = 0;
+var med2_meal_atn = 0;
+var med3_meal_atn = 0;
+var med1_meal_evn = 0;
+var med2_meal_evn = 0;
+var med3_meal_evn = 0;
+var med1_meal_nig = 0;
+var med2_meal_nig = 0;
+var med3_meal_nig = 0;
 var d = new Date();
 var m = d.getMinutes();
 var h = d.getHours();
@@ -31,12 +31,17 @@ var flag2=1;
 var flag3=1;
 var flag4=1;
 var timeoutHandle;
+var med1_count_last=0;
+    				var med2_count_last=0;
+    				var med3_count_last=0;
 function countdown(minutes) {
+	clearInterval()
     var seconds = 60;
     var mins = minutes*seconds;
     function tick() {
     	mins--;
     	console.log(mins)
+    	if ((mins % 300) ==0) {$("#myModal3").modal('show');}
     }
     setInterval(tick,1000)
 }
@@ -140,11 +145,17 @@ var get_time = $.ajax({
     			else if(med1_take_count==2){
     				$("#med1_take_count").attr('src', 'count_bottles/2.png');
     			}
+    			else if(med3_take_count==0){
+    				$("#med3_take_count").attr('src', 'count_bottles/2.png');
+    			}
     			else if(med1_take_count==3){
     				$("#med1_take_count").attr('src', 'count_bottles/3.png');
     			}
     			if (med2_take_count==1) {
     				$("#med2_take_count").attr('src', 'count_bottles/1.png');
+    			}
+    			else if(med3_take_count==0){
+    				$("#med3_take_count").attr('src', 'count_bottles/2.png');
     			}
     			else if(med2_take_count==2){
     				$("#med2_take_count").attr('src', 'count_bottles/2.png');
@@ -152,8 +163,12 @@ var get_time = $.ajax({
     			else if(med2_take_count==3){
     				$("#med2_take_count").attr('src', 'count_bottles/3.png');
     			}
+    			else
     			if (med3_take_count==1) {
     				$("#med3_take_count").attr('src', 'count_bottles/1.png');
+    			}
+    			else if(med3_take_count==0){
+    				$("#med3_take_count").attr('src', 'count_bottles/2.png');
     			}
     			else if(med3_take_count==2){
     				$("#med3_take_count").attr('src', 'count_bottles/2.png');
@@ -161,6 +176,7 @@ var get_time = $.ajax({
     			else if(med3_take_count==3){
     				$("#med3_take_count").attr('src', 'count_bottles/3.png');
     			}
+    			else {$("#med3_take_count").attr('src', 'count_bottles/0.png');}
     			if( med1_sol == 0 & med2_sol == 0 & med3_sol == 0){flag2 = 0;}
     			if ((med1_sol == 1 || med2_sol == 1 || med3_sol == 1) & (flag2==0)) {
     				PlaySound();
@@ -199,23 +215,41 @@ var get_time = $.ajax({
     			}
     		}
         		/////////////////// modal 4 ///////////////////// warning ยาใกล้หมด /////////////////
-        		if ((med1_count <=med2_count) &(med1_count <=med3_count)) 
+        		console.log(med1_count+med2_count+med3_count)
+        		if (((med1_count <=med2_count)) &&(med1_count <=med3_count)) 
     						{
     							$("#medcount").text(med1_count);
+    							$("#Ya").text("ยา : ตัวที่ 1");
     					}
-    					else if ((med2_count <= med1_count) &(med2_count <= med3_count))  {
+    					else if ((med2_count <= med1_count) &&(med2_count <= med3_count))  {
     						$("#medcount").text(med2_count);
+    						$("#Ya").text("ยา : ตัวที่ 2");
     					}
-    					else if ((med3_count <= med1_count) &(med3_count <= med1_count))  {
+    					else if ((med3_count <= med1_count) &&(med3_count <= med1_count))  {
     						$("#medcount").text(med3_count);
+    						$("#Ya").text("ยา : ตัวที่ 3");
     					}
 
     					//console.log(med1_count+med2_count+med3_count)
-    			if ((med1_count < 5) ||(med2_count < 5) ||(med3_count < 5 )) {
-    				var d = new Date();
-    				var m = d.getMinutes();
-    				var h = d.getHours();
+    			if ((med1_count < 6) ||(med2_count < 6) ||(med3_count < 6 )) {
+    				console.log(med1_count_last+""+med2_count_last+""+med2_count_last)
+    				if (med1_count_last != med1_count) {
+    					med1_count_last=med1_count;
+    					console.log(med1_count_last+""+med2_count_last+""+med2_count_last)
+    					$("#myModal4").modal('show');
+    				}
+    				else if (med2_count_last != med2_count ) {
+    					med2_count_last=med2_count;
+    					console.log(med1_count_last+""+med2_count_last+""+med2_count_last)
+    					$("#myModal4").modal('show');
+    				}
+					else if (med3_count_last != med3_count) {
+    					med3_count_last=med3_count;
+    					console.log(med1_count_last+""+med2_count_last+""+med2_count_last)
+    					$("#myModal4").modal('show');
+    				}
     				//console.log(m);
+    				
     				if (m % 30 == 0) {flag4 = 0;}
     						if (((m % 30)==0) & flag4 ==0) {
     						$("#myModal4").modal('show');

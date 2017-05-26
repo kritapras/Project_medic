@@ -62,36 +62,36 @@ def my_callback(channel):
         med1 = med1 - 1
     print "medicine1 count : %d" % med1
     print GPIO.input(11)
-    db = MySQLdb.connect("localhost","root","raspberry","medicine")
-    cursor=db.cursor()
-    sql = "UPDATE medicine_status SET status = %d WHERE id = 24" % med1  
-    try:
+    #db = MySQLdb.connect("localhost","root","raspberry","medicine")
+    #cursor=db.cursor()
+    #sql = "UPDATE medicine_status SET status = %d WHERE id = 24" % med1  
+    #try:
     #Execute the SQL command
-        cursor.execute(sql)
-        print "succes"
+    #    cursor.execute(sql)
+    #    print "succes"
    # Commit your changes in the database
-        db.commit()
-    except:
+        #db.commit()
+    #except:
    # Rollback in case there is any error
-        db.rollback()
-        print "error"
+        #db.rollback()
+        #print "error"
     # disconnect from server
-        db.close()
+        #db.close()
 def my_callback2(channel):
     global med2
     if (med2 > 0):
         med2 = med2 - 1
     print "medicine2 count : %d" % med2
     #print GPIO.input(13)
-    db = MySQLdb.connect("localhost","root","raspberry","medicine")
-    cursor=db.cursor()
-    sql = "UPDATE medicine_status SET status = %d WHERE id = 25" % med2  
-    try:
-        cursor.execute(sql)
-        db.commit()
-    except:
-        db.rollback()
-        db.close()
+    #db = MySQLdb.connect("localhost","root","raspberry","medicine")
+    #cursor=db.cursor()
+    #sql = "UPDATE medicine_status SET status = %d WHERE id = 25" % med2  
+    #try:
+        #cursor.execute(sql)
+        #db.commit()
+    #except:
+        #db.rollback()
+        #db.close()
 def my_callback3(channel):
     global med3
     GPIO.remove_event_detect(channel)
@@ -99,15 +99,15 @@ def my_callback3(channel):
         med3 = med3 - 1
     print "medicine3 count : %d" % med3
     #print GPIO.input(7)
-    db = MySQLdb.connect("localhost","root","raspberry","medicine")
-    cursor=db.cursor()
-    sql = "UPDATE medicine_status SET status = %d WHERE id = 26" % med3  
-    try:
-        cursor.execute(sql)
-        db.commit()
-    except:
-        db.rollback()
-        db.close()
+    #db = MySQLdb.connect("localhost","root","raspberry","medicine")
+    #cursor=db.cursor()
+    #sql = "UPDATE medicine_status SET status = %d WHERE id = 26" % med3  
+    #try:
+        #cursor.execute(sql)
+        #db.commit()
+    #except:
+        #db.rollback()
+        #db.close()
 def clearFlag():
     global flag0
     global flag1
@@ -124,6 +124,9 @@ sen3 = 15
 GPIO.setup(11,GPIO.IN)
 GPIO.setup(13,GPIO.IN)
 GPIO.setup(7,GPIO.IN)
+GPIO.add_event_detect(11, GPIO.FALLING, callback=my_callback, bouncetime=1000)
+GPIO.add_event_detect(13, GPIO.FALLING, callback=my_callback2, bouncetime=1000)
+GPIO.add_event_detect(7, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
 GPIO.setup(8,GPIO.OUT)
 GPIO.setup(10,GPIO.OUT)
 GPIO.setup(12,GPIO.OUT)
@@ -219,7 +222,7 @@ def mainfunc():
     #GPIO.output(15,0) #solenoid 2
     #GPIO.output(18,0)
     #print "bef1 : tmorm1 : tmormw : tmorhw : tmorh 1"
-    print bef1,tmorm1,tmormw,tmorhw,tmorh1
+    #print bef1,tmorm1,tmormw,tmorhw,tmorh1
     #print "time : %d : %d" %(now.hour,now.minute)
     #print "Flag1 : %d,Flag2 = %d:Flag3 = %d, Flag0 =%d , takenow = %d" %(flag1,flag2,flag3,flag0,takenow) 
     ###########################################################################################################
@@ -227,7 +230,7 @@ def mainfunc():
     ##before eat food-------------------------------------------------------------------------------------before
     ###medicine 1----------------------------------------------------------------------1
     ####morning
-    print "minute : %d" % minute  
+    #print "minute : %d" % minute  
     if (minute != now.minute):
         clearFlag()
         minute = now.minute
@@ -614,7 +617,7 @@ def mainfunc():
     if (sol1 == 1) & (flag1 == 0):
         update()
         #GPIO.remove_event(11)
-        GPIO.add_event_detect(11, GPIO.FALLING, callback=my_callback, bouncetime=1000)
+        #GPIO.add_event_detect(11, GPIO.FALLING, callback=my_callback, bouncetime=1000)
         for i in range (0,medic_count1):
             GPIO.output(8,1)
             print "Solenoid 1: ON"
@@ -625,12 +628,12 @@ def mainfunc():
             flag1=1
             #popup
             #time.sleep(10)
-        GPIO.remove_event_detect(11)
+        #GPIO.remove_event_detect(11)
      
     if (sol2 == 1)  & (flag2 == 0):
         update()
         #GPIO.remove_event(13)
-        GPIO.add_event_detect(13, GPIO.FALLING, callback=my_callback2, bouncetime=1000)
+        #GPIO.add_event_detect(13, GPIO.FALLING, callback=my_callback2, bouncetime=1000)
         for j in range (0,medic_count2):
             GPIO.output(10,1)
             print "Solenoid 2: ON"
@@ -641,12 +644,12 @@ def mainfunc():
             flag2=1
             #popup
             #time.sleep(10)
-        GPIO.remove_event_detect(13)
+        #GPIO.remove_event_detect(13)
          
     if (sol3 == 1)  & (flag3 == 0):
         update()
         #GPIO.remove_event(7)
-        GPIO.add_event_detect(7, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
+        #GPIO.add_event_detect(7, GPIO.FALLING, callback=my_callback3, bouncetime=1000)
         for k in range (0,medic_count3):
             GPIO.output(12,1)
             print "Solenoid 3: ON"
@@ -657,7 +660,7 @@ def mainfunc():
             flag3=1
             #popup
             #time.sleep(10)
-        GPIO.remove_event_detect(7)
+        #GPIO.remove_event_detect(7)
     if(((flag1==1) | (flag2 == 1) | (flag3 ==1)) & (flag0 ==0)):
         flag0=1
         print "flag0 = %d" % flag0

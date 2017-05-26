@@ -189,6 +189,7 @@ $(document).ready(function(){
           <div class="form-group">
           <h3><label for="pwd">จำนวนยาที่ต้องรับประทานต่อครั้ง:</label>
             <select id="amount" style="color: black" name="amount">
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -204,6 +205,7 @@ $(document).ready(function(){
           <h3><div class="form-group">
           <label for="pwd">จำนวนยาที่เพิ่ม:</label>
             <select id="add" style="color: black" name="add">
+             <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -238,73 +240,9 @@ $(document).ready(function(){
             </div>
       </div>
   </form>
-  				<div class="container">
+        <div class="container">
   <!-- Trigger the modal with a button -->
- <!--  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">่</button> -->
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
-      <div class="modal-content h2" style="background-color: #002699;color: white"> 
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">ข้อมูลยา</h2>
-        </div>
-        <div class="modal-body" id="Medicinfo">
-        </div>
-        <div class="modal-footer">
-          <img src="pic/audio.png" style="width: 50px; height: 50px" id="MD" onclick="MedDes(tag)">
-          <button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
-
-
-      <div class="container">
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal2">่</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal2" role="dialog">
-    <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
-      <div class="modal-content h2" style="background-color: #002699;color: white"> 
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" style="background-color: white; color: black">&times;</button>
-              <h2 class="modal-title"></h2>
-            </div>
-            <div class="modal-body">
-              <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
-              <h2><span class="label label-success">หน้าหลัก</span></h2><br>
-              <p>รับประทานมื้อ : เช้า : ก่อนอาหาร </p>
-            <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img id="med1_warn" src="template/take/1.png" class="img-responsive"></th>
-                    <th><img id="med2_warn" src="template/take/2.png" class="img-responsive"></th>
-                    <th><img id="med3_warn" src="template/take/1.png" class="img-responsive"></th>
-              </table>              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
-            </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
-
-      <div class="container">
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal3">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal3">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal3" role="dialog">
@@ -334,7 +272,7 @@ $(document).ready(function(){
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal4" role="dialog">
@@ -350,11 +288,11 @@ $(document).ready(function(){
               <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
               <h2><span class="label label-success">แจ้งเตือนยาใกล้หมด</span></h2><br>
               <h1  style="text-align: center; font-size: 200%">
-                ยา : แอสไพริน
+                <p id="Ya"></p>
                   <table class="table-responsive " align="center">
                     <tr>
                       <td>เหลือจำนวน</td>
-                      <td style="border-color: red;border-style: solid;border-width: 3px">5</td>
+                      <td style="border-color: red;border-style: solid;border-width: 3px" id="medcount">5</td>
                       <td>เม็ด</td>
                     </tr>
                   </table>
@@ -370,7 +308,8 @@ $(document).ready(function(){
   </div>
   
 </div>
-<script src="modal.js"></script>
+  				
+<script src="modal3.js"></script>
  
 
 </body>

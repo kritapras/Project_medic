@@ -77,9 +77,11 @@
     }
     th{
       text-align: center;
+      font-size: 150%;
     }
     td{
       text-align: center;
+      font-size: 150%;
     }
         li a.active {
     background-color: #4CAF50;
@@ -128,14 +130,14 @@ p.customfont {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
-        <li class="li"><a href="index.php">สารบัญ</a></li>
+        <li class="li"><a href="index.php">อ่านฉลากยา</a></a></li>
        <!-- <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
         <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
         <li class="li"><a href="Settime.php">แก้ไขเวลารับประทานยา</a></li>
         <li class="li"><a href="History.php">ประวัติ</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>
+        <!--<li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>-->
       </ul></b>
       <ul class="nav navbar-nav navbar-right thai">
         <li>
@@ -173,29 +175,28 @@ p.customfont {
     <tbody>
       <tr>
         <td>1</td>
-        <td id="med1_edit"></td>
-        <td>แก้ไขข้อมลยาที่ 1 ล่าสุด</td>
+        <td>แก้ไขข้อมูลยาที่ 1 ล่าสุด</td>
+         <td id="med1_edit"></td>
       </tr>
       <tr>
         <td>2</td>
+        <td>แก้ไขข้อมูลยาที่ 2 ล่าสุด</td>
         <td id="med2_edit"></td>
-        <td>แก้ไขข้อมลยาที่ 2 ล่าสุด</td>
       </tr>
       <tr>
         <td>3</td>
+        <td>แก้ไขข้อมูลยาที่ 3 ล่าสุด</td>
         <td id="med3_edit"></td>
-        <td>แก้ไขข้อมลยาที่ 3 ล่าสุด</td>
       </tr>
       <tr>
         <td>4</td>
-        <td id="timeedit"></td>
         <td>แก้ไขเวลารับประทานยาล่าสุด</td>
+        <td id="timeedit"></td>
       </tr>
     </tbody>
   </table>
 </div>
-<audio id="audio" src="beep.mp3" autostart="false" ></audio>
-  				<div class="container">
+<audio id="audio" src="beep.mp3" autostart="false" ></audio>  				<div class="container">
   <!-- Trigger the modal with a button -->
  <!--  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">่</button> -->
 
@@ -327,6 +328,6 @@ p.customfont {
   </div>
   
 </div>
-  <script src="modal.js"></script>
+<script src="modal3.js"></script>
 </body>
 </html>

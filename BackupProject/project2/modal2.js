@@ -33,30 +33,12 @@ var flag4=1;
 var timeoutHandle;
 function countdown(minutes) {
     var seconds = 60;
-    var mins = minutes
+    var mins = minutes*seconds;
     function tick() {
-        var current_minutes = mins-1
-        seconds--;
-        console.log("current_min้utes"+current_minutes+"second"+seconds)
-        //console.log("second"+seconds)
-        console.log("Flag 3 ="+flag3)
-        if((current_minutes == 0) & flag3==1) {flag3=0;}
-        if ((current_minutes % 5 == 0) & flag3==0) {
-        	$("#myModal3").modal('show');
-        	PlaySound();
-        flag3=1;
-        }
-        if( seconds > 0 ) {
-            timeoutHandle=setTimeout(tick, 1000);
-        } else {
-
-            if(mins > 1){
-               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
-               setTimeout(function () { countdown(mins - 1); }, 1000);
-            }
-        }
+    	mins--;
+    	console.log(mins)
     }
-    tick();
+    setInterval(tick,1000)
 }
 var get_edit_time = $.ajax({
             url: 'History_GET.php',
@@ -692,3 +674,17 @@ var get_time = $.ajax({
    med20.pause();
 })
      }
+                 				if ( $("#user1").attr('src') == "online.png") {
+            					$("#user1").click(function () 
+            					{
+									$("#user1").attr('src', "offline.png");
+									$("#user2").attr('src', "online.png");
+								});
+            				}
+            				else if ($("#user1").attr('src') == "offline.png" ) {
+            					$("#user1").click(function () 
+            					{
+									$("#user1").attr('src', "online.png");
+									$("#user2").attr('src', "offline.png");
+								});
+            				}
