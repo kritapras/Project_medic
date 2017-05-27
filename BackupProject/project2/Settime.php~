@@ -133,7 +133,7 @@ p.customfont {
         <!--<li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
-        <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
+        <!--<li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>-->
         <li class="li"><a href="Settime.php">แก้ไขเวลารับประทานยา</a></li>
         <li class="li"><a href="History.php">ประวัติ</a></li>
         <!--<li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>-->
@@ -200,9 +200,9 @@ p.customfont {
 
               <div>
           		<div class="bg-1 col-sm-6 container"></div>
-          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="return.png" class="img-responsive"  width="400" height="15" ></a>
+          		<div class="bg-1 col-sm-3 container"><a href="7display.php"><img src="return.png" class="img-responsive"  width="300" height="100" ></a>
           		</div>
-          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="home.png" class="img-responsive"  width="300" height="15"></a>
+          		<div class="bg-1 col-sm-3 container"><a href="Main_page.html"><img src="home.png" class="img-responsive"  width="250" height="50"></a>
           		
           </div>
 <br><br><br><br><br><br>
@@ -271,9 +271,9 @@ p.customfont {
               <h2><span class="label label-success">หน้าหลัก</span></h2><br>
               <p id="mealbf">รับประทานมื้อ</p>
             <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img id="med1_take_count" class="img-responsive"></th>
-                    <th><img id="med2_take_count"  class="img-responsive"></th>
-                    <th><img id="med3_take_count" class="img-responsive"></th>
+                    <th><img id="med1_take_count" class="img-responsive" width="400" height="200"></th>
+                    <th><img id="med2_take_count"  class="img-responsive" width="400" height="200"></th>
+                    <th><img id="med3_take_count" class="img-responsive" width="400" height="200"></th>
               </table>              
             </div>
             <div class="modal-footer">
@@ -355,6 +355,6 @@ p.customfont {
   </div>
   
 </div>
-  <script src="modal3.js"></script>
+  <script src="modal4.js"></script>
 </body>
 </html>

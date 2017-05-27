@@ -32,19 +32,11 @@ var flag3=1;
 var flag4=1;
 var timeoutHandle;
 var med1_count_last=0;
-    				var med2_count_last=0;
-    				var med3_count_last=0;
-function countdown(minutes) {
-	clearInterval()
-    var seconds = 60;
-    var mins = minutes*seconds;
-    function tick() {
-    	mins--;
-    	console.log(mins)
-    	if ((mins % 300) ==0) {$("#myModal3").modal('show');}
-    }
-    setInterval(tick,1000)
-}
+var med2_count_last=0;
+var med3_count_last=0;
+var minutes = 1800;
+var q=1
+
 var get_edit_time = $.ajax({
             url: 'History_GET.php',
             success: function(data) {
@@ -102,6 +94,25 @@ var get_time = $.ajax({
         });
     var before_toggle = toggle;
     //console.log("before_toggle :"+before_toggle);
+    
+    $('#myModal2').on('hidden.bs.modal', function () {
+    q=1;
+})
+    window.onclick = myFunction;
+function myFunction() {
+    q=1;
+}
+function countdown(q) {
+    if (q == 0) {
+        minutes--;
+        if ((minutes % 300) == 0) {
+        	$("#myModal4").modal('show');}
+        	if (minutes == 0) { minutes = 1800;
+        	q=1;}
+        	}
+    else if (q==1) {
+        minutes = 1800;
+  }}
     function PlaySound() {
           var sound = document.getElementById("audio");
           sound.play()
@@ -137,51 +148,45 @@ var get_time = $.ajax({
     			var   med3_sol= myObj['med3_sol'];
     			var	   takenow = myObj['takenow'];
     			//console.log("takenow ="+myObj['takenow']);
-    			
+    			console.log("q ="+q+"minutes = "+minutes)
+
+  				countdown(q)
     			/////////////////// modal 2 ///////////////////// แจ้เวลากนยา ///////////////////////////
     			 if (med1_take_count==1) {
-    				$("#med1_take_count").attr('src', 'count_bottles/1.png');
+    				$("#med1_take_count").attr('src', 'take/1.png');
     			}
     			else if(med1_take_count==2){
-    				$("#med1_take_count").attr('src', 'count_bottles/2.png');
-    			}
-    			else if(med3_take_count==0){
-    				$("#med3_take_count").attr('src', 'count_bottles/0.png');
+    				$("#med1_take_count").attr('src', 'take/2.png');
     			}
     			else if(med1_take_count==3){
-    				$("#med1_take_count").attr('src', 'count_bottles/3.png');
+    				$("#med1_take_count").attr('src', 'take/3.png');
     			}
     			if (med2_take_count==1) {
-    				$("#med2_take_count").attr('src', 'count_bottles/1.png');
-    			}
-    			else if(med3_take_count==0){
-    				$("#med3_take_count").attr('src', 'count_bottles/0.png');
+    				$("#med2_take_count").attr('src', 'take/1.png');
     			}
     			else if(med2_take_count==2){
-    				$("#med2_take_count").attr('src', 'count_bottles/2.png');
+    				$("#med2_take_count").attr('src', 'take/2.png');
     			}
     			else if(med2_take_count==3){
-    				$("#med2_take_count").attr('src', 'count_bottles/3.png');
+    				$("#med2_take_count").attr('src', 'take/3.png');
     			}
     			if (med3_take_count==1) {
-    				$("#med3_take_count").attr('src', 'count_bottles/1.png');
-    			}
-    			else if(med3_take_count==0){
-    				$("#med3_take_count").attr('src', 'count_bottles/0.png');
+    				$("#med3_take_count").attr('src', 'take/1.png');
     			}
     			else if(med3_take_count==2){
-    				$("#med3_take_count").attr('src', 'count_bottles/2.png');
+    				$("#med3_take_count").attr('src', 'take/2.png');
     			}
     			else if(med3_take_count==3){
-    				$("#med3_take_count").attr('src', 'count_bottles/3.png');
+    				$("#med3_take_count").attr('src', 'take/3.png');
     			}
-    			else {$("#med3_take_count").attr('src', 'count_bottles/0.png');}
-    			console.log(flag2)
+    			console.log("flag2 ="+flag2)
+    			console.log("med1_sol"+med1_sol+"med2_sol"+med2_sol+"med3_sol")
     			if( med1_sol == 0 & med2_sol == 0 & med3_sol == 0){flag2 = 0;}
     			if ((med1_sol == 1 || med2_sol == 1 || med3_sol == 1) & (flag2==0)) {
     				PlaySound();
     				$("#myModal2").modal('show');
-    				countdown(30)
+    				q=0;
+    				minutes=1800;
     				flag2 = 1;
     			}
     			$("#mealbf").text("รับประทานอาหารมื้อ ; เช้า ; ก่อนอาหาร");
@@ -215,7 +220,7 @@ var get_time = $.ajax({
     			}
     		}
         		/////////////////// modal 4 ///////////////////// warning ยาใกล้หมด /////////////////
-        		console.log(med1_count+med2_count+med3_count)
+        		//console.log(med1_count+med2_count+med3_count)
         		if (((med1_count <=med2_count)) &&(med1_count <=med3_count)) 
     						{
     							$("#medcount").text(med1_count);

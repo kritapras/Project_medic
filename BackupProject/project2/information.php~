@@ -99,14 +99,14 @@ p.customfont {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"><b>
       <ul class="nav navbar-nav active thai" style="font-size: 300%;text-align: center;">
-        <li class="li"><a href="index.php">สารบัญ</a></li>
+        <li class="li"><a href="index.php">อ่านฉลากยา</a></li>
        <!-- <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
-        <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
+        <!--<li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>-->
         <li class="li"><a href="Settime.php">แก้ไขเวลารับประทานยา</a></li>
         <li class="li"><a href="History.php">ประวัติ</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>
+       <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li> -->
       </ul></b>
       <ul class="nav navbar-nav navbar-right thai">
         <li>
@@ -139,7 +139,7 @@ p.customfont {
       </div>
       <audio id="audio" src="beep.mp3" autostart="false" ></audio>
         
-        <div class="container">
+      				<div class="container">
   <!-- Trigger the modal with a button -->
  <!--  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">่</button> -->
 
@@ -270,7 +270,8 @@ p.customfont {
     </div>
   </div>
   
-</div>
-  <script src="modal3.js"></script>
+</div>       
+       
+  <script src="modal4.js"></script>
 </body>
 </html>

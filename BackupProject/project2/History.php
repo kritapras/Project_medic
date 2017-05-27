@@ -134,7 +134,7 @@ p.customfont {
        <!-- <li class="li"><a href="Main_page.php">หน้าหลัก</a></li>-->
         <li class="li"><a href="information.php">ข้อมูลยาประจำตัว</a></li>
         <li class="li"><a href="7display.php">แก้ไขการแจ้งเตือน</a></li>
-        <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>
+       <!-- <li class="li"><a href="Setting1.php">แก้ไขข้อมูลยา</a></li>-->
         <li class="li"><a href="Settime.php">แก้ไขเวลารับประทานยา</a></li>
         <li class="li"><a href="History.php">ประวัติ</a></li>
         <!--<li><a href="#"><span class="glyphicon glyphicon-log-in" style="font-size: 50%"></span> Login</a></li>-->
@@ -197,6 +197,8 @@ p.customfont {
   </table>
 </div>
 <audio id="audio" src="beep.mp3" autostart="false" ></audio>  				<div class="container">
+ 
+       				<div class="container">
   <!-- Trigger the modal with a button -->
  <!--  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">่</button> -->
 
@@ -227,7 +229,7 @@ p.customfont {
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal2">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal2">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal2" role="dialog">
@@ -242,11 +244,11 @@ p.customfont {
             <div class="modal-body">
               <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
               <h2><span class="label label-success">หน้าหลัก</span></h2><br>
-              <p>รับประทานมื้อ : เช้า : ก่อนอาหาร </p>
+              <p id="mealbf">รับประทานมื้อ</p>
             <table class="table-responsive" style="width: 100%;border-color: ">
-                    <th><img src="template/take/1.png" class="img-responsive"></th>
-                    <th><img src="template/take/2.png" class="img-responsive"></th>
-                    <th><img src="template/take/1.png" class="img-responsive"></th>
+                    <th><img id="med1_take_count" class="img-responsive"></th>
+                    <th><img id="med2_take_count"  class="img-responsive"></th>
+                    <th><img id="med3_take_count" class="img-responsive"></th>
               </table>              
             </div>
             <div class="modal-footer">
@@ -262,7 +264,7 @@ p.customfont {
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal3">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal3">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal3" role="dialog">
@@ -292,7 +294,7 @@ p.customfont {
 
       <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">่</button>
+  <!--<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">่</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal4" role="dialog">
@@ -308,11 +310,11 @@ p.customfont {
               <p style="text-align: right; color: white; background-color: orange">Medicine Cabinet for Eyesight Problem and Elderly Person via Internet of Things</p><br>
               <h2><span class="label label-success">แจ้งเตือนยาใกล้หมด</span></h2><br>
               <h1  style="text-align: center; font-size: 200%">
-                ยา : แอสไพริน
+                <p id="Ya"></p>
                   <table class="table-responsive " align="center">
                     <tr>
                       <td>เหลือจำนวน</td>
-                      <td style="border-color: red;border-style: solid;border-width: 3px">5</td>
+                      <td style="border-color: red;border-style: solid;border-width: 3px" id="medcount">5</td>
                       <td>เม็ด</td>
                     </tr>
                   </table>
@@ -328,6 +330,9 @@ p.customfont {
   </div>
   
 </div>
-<script src="modal3.js"></script>
+
+  <script src="modal4.js"></script>
+
+     
 </body>
 </html>

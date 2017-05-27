@@ -1,4 +1,5 @@
 <?php
+include 'medicine_status.php';
 $servername = "localhost";
 $username = "root"; 
 $password = "raspberry";
@@ -43,7 +44,8 @@ $conn->set_charset("utf8");
         }
 	echo $user+$amount+$add+$mor+$atn+$evn+$nig+$before;*/
 	if($user == 1) {
-  $sql1="  UPDATE medicine_status  SET status = '$add 'WHERE title='med1_count' ";
+	$med1_count = $add+$med1_count;
+  $sql1="  UPDATE medicine_status  SET status = '$med1_count 'WHERE title='med1_count' ";
   $sql2="  UPDATE medicine_status   SET status = '$amount' WHERE title='med1_take_count'";
   $sql3="  UPDATE medicine_status  SET status = '$before' WHERE title='med1_take_before'";
   $sql4="  UPDATE medicine_status  SET status = '$mor' WHERE title='med1_meal_mor'";
@@ -53,6 +55,7 @@ $conn->set_charset("utf8");
   $sql8="  UPDATE timeedit  SET timeedit=now() WHERE title='med1_edit'";
   }
 	elseif($user == 2) {
+	$med2_count = $add+$med2_count;
 		$sql1="  UPDATE medicine_status  SET status = '$add 'WHERE title='med2_count' ";
   $sql2="  UPDATE medicine_status   SET status = '$amount' WHERE title='med2_take_count'";
   $sql3="  UPDATE medicine_status  SET status = '$before' WHERE title='med2_take_before'";
@@ -62,6 +65,7 @@ $conn->set_charset("utf8");
   $sql7="  UPDATE medicine_status  SET status = '$nig' WHERE title='med2_meal_nig'";
   $sql8="  UPDATE timeedit  SET timeedit = now() WHERE title='med2_edit'";}
   elseif($user == 3) {
+  	$med3_count = $add+$med3_count;
 		$sql1="  UPDATE medicine_status  SET status = '$add 'WHERE title='med3_count' ";
   $sql2="  UPDATE medicine_status   SET status = '$amount' WHERE title='med3_take_count'";
   $sql3="  UPDATE medicine_status  SET status = '$before' WHERE title='med3_take_before'";
